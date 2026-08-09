@@ -16,6 +16,12 @@
  *    de archivos, para funcionar de forma robusta en el entorno serverless de
  *    Vercel.
  *  - Toda la lógica sensible vive aquí (servidor); el cliente solo consume JSON.
+ *  - CACHÉ POR ALERTA (H2·A): las alertas son estáticas y deterministas, así que
+ *    la ficha de cada `alertaId` se calcula una sola vez y se reutiliza. Esto
+ *    evita repetir llamadas a Voyage/Anthropic al reabrir la misma alerta (el
+ *    patrón típico de la demo) y elimina el fallo intermitente por límite de
+ *    tasa. La caché es en memoria del proceso; en serverless se rehace tras un
+ *    arranque en frío, lo cual es aceptable para un prototipo.
  *
  * PARA EL INFORME: es el punto de integración entre el evento geoespacial
  * (pre-calculado) y la capa semántica (real). Ejemplifica cómo se "aterriza" el
@@ -28,6 +34,12 @@ import type { ColeccionAlertas } from "@/lib/tipos";
 
 // Ejecutar en Node.js (el SDK de Anthropic y Supabase requieren APIs de Node).
 export const runtime = "nodejs";
+
+// Caché en memoria de fichas ya generadas, indexada por alertaId (H2·A).
+// Solo se guardan respuestas exitosas: si hubo un error (p. ej. 429), no se
+// cachea y el siguiente clic vuelve a intentarlo.
+const cacheFichas = new Map<string, unknown>();
+
 export async function POST(req: NextRequest) {
   try {
     const { alertaId } = await req.json();
@@ -38,6 +50,10 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     }
+
+    // Si ya se generó la ficha de esta alerta, devolverla sin recomputar.
+    const cacheada = cacheFichas.get(alertaId);
+    if (cacheada) return NextResponse.json(cacheada);
 
     // Cargar el GeoJSON estático desde el propio despliegue y localizar la alerta.
     const resGeo = await fetch(`${req.nextUrl.origin}/data/alertas.geojson`, {
@@ -74,12 +90,17 @@ export async function POST(req: NextRequest) {
     const { respuesta, generacion_deshabilitada, aviso } =
       await generarRespuestaRAG(pregunta, fragmentos);
 
-    return NextResponse.json({
+    const payload = {
       ficha: respuesta,
       fuentes: extraerFuentes(fragmentos),
       generacion_deshabilitada,
       aviso,
-    });
+    };
+
+    // Cachear solo respuestas exitosas para futuros clics en la misma alerta.
+    cacheFichas.set(alertaId, payload);
+
+    return NextResponse.json(payload);
   } catch (e) {
     const mensaje = e instanceof Error ? e.message : "Error desconocido";
     console.error("[/api/contexto]", mensaje);

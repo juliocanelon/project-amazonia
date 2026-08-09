@@ -45,6 +45,26 @@ export interface FragmentoRecuperado {
   similitud: number;
 }
 
+const dormir = (ms: number) => new Promise((r) => setTimeout(r, ms));
+// Red de seguridad (H2·C) ante el límite de tasa gratuito de Voyage (3 RPM):
+// si el embedding de la consulta devuelve 429, se reintenta con una espera
+// breve. La caché por alerta en /api/contexto evita el caso común; esto cubre
+// las ráfagas de la primera visita a varias alertas seguidas.
+const ESPERAS_429_MS = [7_000, 14_000];
+
+async function embeddingConReintento(consulta: string): Promise<number[]> {
+  for (let intento = 0; ; intento++) {
+    try {
+      return await embeddingConsulta(consulta);
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      const es429 = msg.includes("(429)");
+      if (!es429 || intento >= ESPERAS_429_MS.length) throw e;
+      await dormir(ESPERAS_429_MS[intento]);
+    }
+  }
+}
+
 /**
  * Recupera los fragmentos del corpus más similares a la consulta mediante
  * búsqueda vectorial (similitud coseno) en Supabase/pgvector.
@@ -53,7 +73,7 @@ export async function recuperarFragmentos(
   consulta: string,
   k = 6
 ): Promise<FragmentoRecuperado[]> {
-  const embedding = await embeddingConsulta(consulta);
+  const embedding = await embeddingConReintento(consulta);
   const supabase = obtenerSupabaseServidor();
 
   const { data, error } = await supabase.rpc("match_fragmentos", {

@@ -106,9 +106,10 @@ export default function ChatRAG() {
           />
         </div>
         <p className="mt-1 text-[12px] text-texto-tenue">
-          Responde a partir del corpus de 12 artículos científicos. Cada
-          respuesta muestra las fuentes consultadas. Si el corpus no cubre algo,
-          lo declara en lugar de inventar.
+          Responde a partir del corpus de 24 fuentes reales (14 artículos
+          científicos y 10 documentos de prensa e informes). Cada respuesta
+          muestra las fuentes consultadas. Si el corpus no cubre algo, lo
+          declara en lugar de inventar.
         </p>
       </div>
 
