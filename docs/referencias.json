@@ -1,0 +1,144 @@
+{
+  "_nota": "Referencias verificadas del proyecto Centinela Orinoco. NO añadir fuentes no verificadas. NO alterar los datos bibliográficos. Los resúmenes del corpus deben redactarse en español sin reproducir texto literal de los artículos originales.",
+  "referencias": [
+    {
+      "id": "camalan-2022",
+      "autores": "Camalan, S., Cui, K., Pauca, V. P., Alqahtani, S., Silman, M., Chan, R., Plemmons, R. J., Dethier, E. N., Fernandez, L. E., & Lutz, D. A.",
+      "anio": 2022,
+      "titulo": "Change detection of Amazonian alluvial gold mining using deep learning and Sentinel-2 imagery",
+      "revista": "Remote Sensing, 14(7), 1746",
+      "doi": "10.3390/rs14071746",
+      "indexacion": "Scopus, Web of Science",
+      "capa": "Detección satelital con aprendizaje automático",
+      "relevancia": "Antecedente indexado más directo. Conjunto de datos abierto de minería aluvial amazónica; incluye instancias de Venezuela como conjunto de prueba fuera de muestra."
+    },
+    {
+      "id": "becerra-2024",
+      "autores": "Becerra, M., Villa, L., Nicolau, A. P., Herndon, K. E., Novoa, S., Martín-Arias, V., Dyson, K., Walker, K., Tenneson, K., & Saah, D.",
+      "anio": 2024,
+      "titulo": "Creating near real-time alerts of illegal gold mining in the Peruvian Amazon using Synthetic Aperture Radar",
+      "revista": "Environmental Research Communications, 6(12), 125022",
+      "doi": "10.1088/2515-7620/ad937e",
+      "indexacion": "Scopus, Web of Science (ESCI)",
+      "capa": "Alertas tempranas casi en tiempo real",
+      "relevancia": "Sistema RAMI: alertas operativas de minería ilegal con Sentinel-1 en Google Earth Engine. Demuestra viabilidad técnica y evidencia la ausencia de un equivalente para Venezuela."
+    },
+    {
+      "id": "gallwey-2020",
+      "autores": "Gallwey, J., Robiati, C., Coggan, J., Vogt, D., & Eyre, M.",
+      "anio": 2020,
+      "titulo": "A Sentinel-2 based multispectral convolutional neural network for detecting artisanal small-scale mining in Ghana: Applying deep learning to shallow mining",
+      "revista": "Remote Sensing of Environment, 248, 111970",
+      "doi": "10.1016/j.rse.2020.111970",
+      "indexacion": "Scopus, Web of Science (SCIE) — Q1",
+      "capa": "Detección satelital con aprendizaje automático",
+      "relevancia": "Referencia metodológica de mayor jerarquía. CNN tipo U-Net con errores de omisión y comisión inferiores al 8%."
+    },
+    {
+      "id": "fonseca-2024",
+      "autores": "Fonseca, A., Marshall, M. T., & Salama, S.",
+      "anio": 2024,
+      "titulo": "Enhanced detection of artisanal small-scale mining with spectral and textural segmentation of Landsat time series",
+      "revista": "Remote Sensing, 16(10), 1749",
+      "doi": "10.3390/rs16101749",
+      "indexacion": "Scopus, Web of Science (SCIE)",
+      "capa": "Detección satelital con aprendizaje automático",
+      "relevancia": "Segmentación de series temporales (LandTrendr) + características texturales + Random Forest. Aborda el problema de que las minas artesanales se confunden espectralmente con otros desmontes."
+    },
+    {
+      "id": "lobo-2018",
+      "autores": "Lobo, F. de L., Souza-Filho, P. W. M., Novo, E. M. L. de M., Carlos, F. M., & Barbosa, C. C. F.",
+      "anio": 2018,
+      "titulo": "Mapping mining areas in the Brazilian Amazon using MSI/Sentinel-2 imagery (2017)",
+      "revista": "Remote Sensing, 10(8), 1178",
+      "doi": "10.3390/rs10081178",
+      "indexacion": "Scopus, Web of Science (SCIE)",
+      "capa": "Detección satelital con aprendizaje automático",
+      "relevancia": "Flujo de trabajo de bajo costo en Google Earth Engine. Distingue minería industrial de pequeña escala y tipo de mineral."
+    },
+    {
+      "id": "reiche-2021",
+      "autores": "Reiche, J., Mullissa, A., Slagter, B., Gou, Y., Tsendbazar, N.-E., Odongo-Braun, C., Vollrath, A., Weisse, M. J., Stolle, F., Pickens, A., Donchyts, G., Clinton, N., Gorelick, N., & Herold, M.",
+      "anio": 2021,
+      "titulo": "Forest disturbance alerts for the Congo Basin using Sentinel-1",
+      "revista": "Environmental Research Letters, 16(2), 024005",
+      "doi": "10.1088/1748-9326/abd0a8",
+      "indexacion": "Scopus, Web of Science (SCIE)",
+      "capa": "Alertas tempranas casi en tiempo real",
+      "relevancia": "Sistema RADD. Radar Sentinel-1 a 10 m de resolución cada 6-12 días, insensible a la nubosidad. Estándar de referencia para alerta temprana."
+    },
+    {
+      "id": "garcia-sanchez-2008",
+      "autores": "García-Sánchez, A., Contreras, F., Adams, M., & Santos-Francés, F.",
+      "anio": 2008,
+      "titulo": "Mercury contamination of surface water and fish in a gold mining region (Cuyuni river basin, Venezuela)",
+      "revista": "International Journal of Environment and Pollution, 33(2/3), 260-274",
+      "doi": "10.1504/IJEP.2008.019398",
+      "indexacion": "Scopus",
+      "capa": "Impacto ambiental documentado en Venezuela",
+      "relevancia": "Validación cuantitativa arbitrada del mercurio en Venezuela: hasta 4,60 µg/L en aguas superficiales del Cuyuní, tres órdenes de magnitud sobre el fondo natural. Bioacumulación en peces carnívoros."
+    },
+    {
+      "id": "santos-frances-2011",
+      "autores": "Santos-Francés, F., García-Sánchez, A., Alonso-Rojo, P., Contreras, F., & Adams, M.",
+      "anio": 2011,
+      "titulo": "Distribution and mobility of mercury in soils of a gold mining region, Cuyuni river basin, Venezuela",
+      "revista": "Journal of Environmental Management, 92(4), 1268-1276",
+      "doi": "10.1016/j.jenvman.2010.12.003",
+      "indexacion": "Scopus, Web of Science (SCIE)",
+      "capa": "Impacto ambiental documentado en Venezuela",
+      "relevancia": "Dimensión edáfica de la contaminación por mercurio en la misma cuenca."
+    },
+    {
+      "id": "pacheco-angulo-2021",
+      "autores": "Pacheco-Angulo, C., Plata-Rocha, W., Serrano, J., Vilanova, E., Monjardin-Armenta, S., González, A., & Camargo, C.",
+      "anio": 2021,
+      "titulo": "A low-cost and robust Landsat-based approach to study forest degradation and carbon emissions from selective logging in the Venezuelan Amazon",
+      "revista": "Remote Sensing, 13(8), 1435",
+      "doi": "10.3390/rs13081435",
+      "indexacion": "Scopus, Web of Science (SCIE)",
+      "capa": "Impacto ambiental documentado en Venezuela",
+      "relevancia": "Uno de los escasos estudios indexados de teledetección centrados en la Amazonía venezolana (Reserva Forestal de Imataca, Bolívar)."
+    },
+    {
+      "id": "pimenow-2025",
+      "autores": "Pimenow, S., Pimenowa, O., Prus, P., & Niklas, A.",
+      "anio": 2025,
+      "titulo": "The impact of artificial intelligence on the sustainability of regional ecosystems: Current challenges and future prospects",
+      "revista": "Sustainability, 17(11), 4795",
+      "doi": "10.3390/su17114795",
+      "indexacion": "Scopus, Web of Science (SCIE/SSCI)",
+      "capa": "Marco tecnológico",
+      "relevancia": "Revisión de alcance PRISMA de 198 publicaciones sobre IA en monitoreo de bosques, agua y ecosistemas agrícolas regionales."
+    },
+    {
+      "id": "ficili-2025",
+      "autores": "Ficili, I., Giacobbe, M., Tricomi, G., & Puliafito, A.",
+      "anio": 2025,
+      "titulo": "From sensors to data intelligence: Leveraging IoT, cloud, and edge computing with AI",
+      "revista": "Sensors, 25(6), 1763",
+      "doi": "10.3390/s25061763",
+      "indexacion": "Scopus, Web of Science (SCIE)",
+      "capa": "Marco tecnológico",
+      "relevancia": "Integración IoT + nube + borde con IA. Redes LPWAN/LoRaWAN y procesamiento local para zonas de conectividad limitada."
+    },
+    {
+      "id": "de-bruyn-2026",
+      "autores": "de Bruyn, C., Ben Said, F., Venter, M., & Castanho, R. A.",
+      "anio": 2026,
+      "titulo": "Are smart technologies enough to build climate-resilient cities? A bibliometric assessment of global trends and research gaps",
+      "revista": "City and Environment Interactions, 29, 100306",
+      "doi": null,
+      "indexacion": "Elsevier",
+      "capa": "Marco tecnológico",
+      "relevancia": "Análisis bibliométrico de 1.348 documentos de Scopus y WoS. Tríada Big Data + IoT + IA como paradigma de gobernanza; brecha entre potencial tecnológico e implementación real."
+    }
+  ],
+  "fuentes_de_contexto_no_arbitradas": [
+    {
+      "fuente": "SOS Orinoco (2021)",
+      "dato": "Pérdida aproximada de 520.900 ha de bosque en el Arco Minero del Orinoco entre 2000 y 2020, con aceleración en el quinquenio 2015-2020",
+      "advertencia": "Literatura gris. Citar siempre como fuente de contexto no revisada por pares."
+    }
+  ]
+}

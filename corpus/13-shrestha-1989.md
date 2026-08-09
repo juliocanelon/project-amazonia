@@ -1,0 +1,20 @@
+---
+id: "shrestha-1989"
+autores: "Shrestha, K. P., & Ruiz de Quilarque, X."
+anio: 1989
+titulo: "A preliminary study of mercury contamination in the surface soil and river sediment of the Roscio District, Bolivar State, Venezuela"
+revista: "The Science of the Total Environment, 79, 233-239"
+doi: null
+indexacion: "Elsevier (Scopus/Web of Science, no verificado en referencias.json — fuente científica arbitrada localizada durante el procesamiento del corpus)"
+tipo: "resumen_elaborado"
+---
+
+NOTA: Resumen elaborado en español. No reproduce texto literal del original. Este artículo no forma parte de la lista de referencias verificadas del proyecto (referencias.json); sus datos bibliográficos se tomaron directamente del propio documento, no de dicha lista. Es, además, una de las referencias más antiguas y más citadas por los demás estudios venezolanos incluidos en este corpus sobre mercurio y minería.
+
+Este es uno de los estudios pioneros sobre contaminación mercurial por minería aurífera en Venezuela, publicado en 1989 por investigadores de la Universidad de Oriente y la Corporación Venezolana de Guayana (CVG). El objetivo fue realizar una evaluación preliminar del nivel de mercurio en suelos superficiales y sedimentos fluviales del distrito Roscio, estado Bolívar —zona donde los buscadores de oro llevan décadas utilizando mercurio para amalgamar el metal extraído de arenas y rocas auríferas— y compararlo con una zona de referencia sin actividad minera, para establecer una línea base de contaminación.
+
+Metodológicamente, los autores recolectaron muestras de suelo superficial y sedimento de los ríos Yuruari, Yuruán y Cuyuní, así como de zonas de trabajo minero activo, en julio de 1986, y las compararon con 21 muestras de sedimento del río Manzanares, en el estado Sucre, considerado libre de fuentes industriales de mercurio. Las muestras se digirieron con ácidos y peróxido de hidrógeno, y el contenido de mercurio se determinó con un analizador de mercurio por absorción atómica (Perkin-Elmer Coleman MAS-50). Los autores distinguieron entre muestras tomadas directamente en áreas de trabajo minero activo y muestras de sedimento fluvial más general, para diferenciar la contaminación puntual de la dispersión regional del metal.
+
+Los resultados muestran que la concentración de mercurio en el sedimento del área contaminada (distrito Roscio) varió entre 0,12 y 129,3 microgramos por gramo, con un promedio de 0,71 µg/g en los sedimentos fluviales generales y de 36,9 µg/g en los suelos de las zonas de trabajo minero activo, mientras que el área de referencia (río Manzanares) presentó un promedio de apenas 0,06 µg/g. Esto representa un incremento de al menos 11,8 veces en los sedimentos fluviales y de más de 600 veces en las zonas de trabajo minero directo, respecto al nivel de fondo natural estimado para Venezuela. Los autores concluyeron que, de no adoptarse medidas de precaución en el uso del mercurio, la contaminación acumulada podría afectar seriamente a las generaciones futuras de los habitantes de la zona, que dependen de esos ríos para agua potable, riego y consumo de pescado.
+
+Este artículo no emplea teledetección, pero tiene un valor histórico y de referencia particular para el proyecto: al ser uno de los primeros estudios en documentar científicamente la magnitud de la contaminación mercurial en la región minera de Bolívar, establece la línea de base contra la cual se han comparado prácticamente todos los estudios posteriores sobre el tema en Venezuela (incluyendo los de García-Sánchez, Contreras y Adams incluidos en este corpus), y confirma que la contaminación por mercurio derivada de la minería aurífera artesanal en la cuenca del Cuyuní no es un fenómeno reciente sino un problema con más de tres décadas de documentación científica continua. Para un sistema de monitoreo satelital de minería ilegal en el Arco Minero del Orinoco, este antecedente subraya la persistencia histórica del problema y la necesidad de que cualquier esfuerzo de detección remota se articule con el cuerpo ya extenso de evidencia ambiental y sanitaria acumulada en la región desde finales de los años ochenta.

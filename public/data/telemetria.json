@@ -1,0 +1,2198 @@
+[
+  {
+    "id_sensor": "SEN-CUY-03",
+    "nombre": "Estación Cuyuní Medio",
+    "lat": 6.42,
+    "lon": -61.83,
+    "cuenca": "Río Cuyuní",
+    "lecturas": [
+      {
+        "fecha": "2026-05-09",
+        "turbidez_ntu": 154,
+        "ph": 6.78,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-05-10",
+        "turbidez_ntu": 156,
+        "ph": 6.76,
+        "conductividad_us": 57
+      },
+      {
+        "fecha": "2026-05-11",
+        "turbidez_ntu": 146,
+        "ph": 6.76,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-05-12",
+        "turbidez_ntu": 165,
+        "ph": 6.82,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-05-13",
+        "turbidez_ntu": 137,
+        "ph": 6.76,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-05-14",
+        "turbidez_ntu": 147,
+        "ph": 6.83,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-05-15",
+        "turbidez_ntu": 155,
+        "ph": 6.79,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-05-16",
+        "turbidez_ntu": 162,
+        "ph": 6.8,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-05-17",
+        "turbidez_ntu": 148,
+        "ph": 6.82,
+        "conductividad_us": 57
+      },
+      {
+        "fecha": "2026-05-18",
+        "turbidez_ntu": 157,
+        "ph": 6.82,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-05-19",
+        "turbidez_ntu": 151,
+        "ph": 6.8,
+        "conductividad_us": 57
+      },
+      {
+        "fecha": "2026-05-20",
+        "turbidez_ntu": 154,
+        "ph": 6.83,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-05-21",
+        "turbidez_ntu": 141,
+        "ph": 6.82,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-05-22",
+        "turbidez_ntu": 147,
+        "ph": 6.79,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-23",
+        "turbidez_ntu": 154,
+        "ph": 6.81,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-05-24",
+        "turbidez_ntu": 139,
+        "ph": 6.75,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-05-25",
+        "turbidez_ntu": 151,
+        "ph": 6.83,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-05-26",
+        "turbidez_ntu": 157,
+        "ph": 6.83,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-05-27",
+        "turbidez_ntu": 146,
+        "ph": 6.81,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-28",
+        "turbidez_ntu": 146,
+        "ph": 6.85,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-05-29",
+        "turbidez_ntu": 150,
+        "ph": 6.79,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-05-30",
+        "turbidez_ntu": 159,
+        "ph": 6.83,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-31",
+        "turbidez_ntu": 148,
+        "ph": 6.8,
+        "conductividad_us": 56
+      },
+      {
+        "fecha": "2026-06-01",
+        "turbidez_ntu": 153,
+        "ph": 6.82,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-02",
+        "turbidez_ntu": 147,
+        "ph": 6.82,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-06-03",
+        "turbidez_ntu": 148,
+        "ph": 6.79,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-06-04",
+        "turbidez_ntu": 143,
+        "ph": 6.8,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-06-05",
+        "turbidez_ntu": 151,
+        "ph": 6.81,
+        "conductividad_us": 57
+      },
+      {
+        "fecha": "2026-06-06",
+        "turbidez_ntu": 149,
+        "ph": 6.8,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-07",
+        "turbidez_ntu": 133,
+        "ph": 6.81,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-08",
+        "turbidez_ntu": 161,
+        "ph": 6.79,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-09",
+        "turbidez_ntu": 148,
+        "ph": 6.84,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-06-10",
+        "turbidez_ntu": 145,
+        "ph": 6.83,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-11",
+        "turbidez_ntu": 149,
+        "ph": 6.79,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-12",
+        "turbidez_ntu": 161,
+        "ph": 6.79,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-13",
+        "turbidez_ntu": 144,
+        "ph": 6.83,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-14",
+        "turbidez_ntu": 153,
+        "ph": 6.81,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-15",
+        "turbidez_ntu": 152,
+        "ph": 6.77,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-16",
+        "turbidez_ntu": 149,
+        "ph": 6.81,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-17",
+        "turbidez_ntu": 154,
+        "ph": 6.78,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-18",
+        "turbidez_ntu": 150,
+        "ph": 6.81,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-06-19",
+        "turbidez_ntu": 146,
+        "ph": 6.76,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-20",
+        "turbidez_ntu": 158,
+        "ph": 6.8,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-21",
+        "turbidez_ntu": 156,
+        "ph": 6.81,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-22",
+        "turbidez_ntu": 163,
+        "ph": 6.76,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-23",
+        "turbidez_ntu": 147,
+        "ph": 6.82,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-24",
+        "turbidez_ntu": 158,
+        "ph": 6.82,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-25",
+        "turbidez_ntu": 150,
+        "ph": 6.81,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-26",
+        "turbidez_ntu": 148,
+        "ph": 6.79,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-27",
+        "turbidez_ntu": 157,
+        "ph": 6.83,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-28",
+        "turbidez_ntu": 153,
+        "ph": 6.83,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-06-29",
+        "turbidez_ntu": 150,
+        "ph": 6.81,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-30",
+        "turbidez_ntu": 144,
+        "ph": 6.83,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-07-01",
+        "turbidez_ntu": 161,
+        "ph": 6.82,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-07-02",
+        "turbidez_ntu": 152,
+        "ph": 6.78,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-07-03",
+        "turbidez_ntu": 152,
+        "ph": 6.79,
+        "conductividad_us": 57
+      },
+      {
+        "fecha": "2026-07-04",
+        "turbidez_ntu": 147,
+        "ph": 6.76,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-07-05",
+        "turbidez_ntu": 160,
+        "ph": 6.79,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-07-06",
+        "turbidez_ntu": 147,
+        "ph": 6.8,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-07-07",
+        "turbidez_ntu": 151,
+        "ph": 6.77,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-07-08",
+        "turbidez_ntu": 139,
+        "ph": 6.81,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-07-09",
+        "turbidez_ntu": 160,
+        "ph": 6.76,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-07-10",
+        "turbidez_ntu": 150,
+        "ph": 6.79,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-07-11",
+        "turbidez_ntu": 154,
+        "ph": 6.77,
+        "conductividad_us": 57
+      },
+      {
+        "fecha": "2026-07-12",
+        "turbidez_ntu": 357,
+        "ph": 6.64,
+        "conductividad_us": 76
+      },
+      {
+        "fecha": "2026-07-13",
+        "turbidez_ntu": 567,
+        "ph": 6.51,
+        "conductividad_us": 88
+      },
+      {
+        "fecha": "2026-07-14",
+        "turbidez_ntu": 775,
+        "ph": 6.45,
+        "conductividad_us": 99
+      },
+      {
+        "fecha": "2026-07-15",
+        "turbidez_ntu": 977,
+        "ph": 6.36,
+        "conductividad_us": 110
+      },
+      {
+        "fecha": "2026-07-16",
+        "turbidez_ntu": 1204,
+        "ph": 6.25,
+        "conductividad_us": 125
+      },
+      {
+        "fecha": "2026-07-17",
+        "turbidez_ntu": 1206,
+        "ph": 6.21,
+        "conductividad_us": 125
+      },
+      {
+        "fecha": "2026-07-18",
+        "turbidez_ntu": 1210,
+        "ph": 6.22,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-07-19",
+        "turbidez_ntu": 1193,
+        "ph": 6.17,
+        "conductividad_us": 127
+      },
+      {
+        "fecha": "2026-07-20",
+        "turbidez_ntu": 1204,
+        "ph": 6.21,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-07-21",
+        "turbidez_ntu": 1208,
+        "ph": 6.18,
+        "conductividad_us": 124
+      },
+      {
+        "fecha": "2026-07-22",
+        "turbidez_ntu": 1185,
+        "ph": 6.17,
+        "conductividad_us": 125
+      },
+      {
+        "fecha": "2026-07-23",
+        "turbidez_ntu": 1195,
+        "ph": 6.19,
+        "conductividad_us": 125
+      },
+      {
+        "fecha": "2026-07-24",
+        "turbidez_ntu": 1201,
+        "ph": 6.21,
+        "conductividad_us": 124
+      },
+      {
+        "fecha": "2026-07-25",
+        "turbidez_ntu": 1199,
+        "ph": 6.19,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-07-26",
+        "turbidez_ntu": 1201,
+        "ph": 6.23,
+        "conductividad_us": 125
+      },
+      {
+        "fecha": "2026-07-27",
+        "turbidez_ntu": 1200,
+        "ph": 6.17,
+        "conductividad_us": 127
+      },
+      {
+        "fecha": "2026-07-28",
+        "turbidez_ntu": 1200,
+        "ph": 6.18,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-07-29",
+        "turbidez_ntu": 1207,
+        "ph": 6.2,
+        "conductividad_us": 123
+      },
+      {
+        "fecha": "2026-07-30",
+        "turbidez_ntu": 1195,
+        "ph": 6.2,
+        "conductividad_us": 125
+      },
+      {
+        "fecha": "2026-07-31",
+        "turbidez_ntu": 1202,
+        "ph": 6.18,
+        "conductividad_us": 125
+      },
+      {
+        "fecha": "2026-08-01",
+        "turbidez_ntu": 1156,
+        "ph": 6.22,
+        "conductividad_us": 123
+      },
+      {
+        "fecha": "2026-08-02",
+        "turbidez_ntu": 1125,
+        "ph": 6.22,
+        "conductividad_us": 120
+      },
+      {
+        "fecha": "2026-08-03",
+        "turbidez_ntu": 1077,
+        "ph": 6.32,
+        "conductividad_us": 117
+      },
+      {
+        "fecha": "2026-08-04",
+        "turbidez_ntu": 1036,
+        "ph": 6.3,
+        "conductividad_us": 115
+      },
+      {
+        "fecha": "2026-08-05",
+        "turbidez_ntu": 1002,
+        "ph": 6.26,
+        "conductividad_us": 115
+      },
+      {
+        "fecha": "2026-08-06",
+        "turbidez_ntu": 966,
+        "ph": 6.35,
+        "conductividad_us": 111
+      }
+    ]
+  },
+  {
+    "id_sensor": "SEN-CAR-01",
+    "nombre": "Estación Caroní Bajo",
+    "lat": 6.05,
+    "lon": -62.75,
+    "cuenca": "Río Caroní",
+    "lecturas": [
+      {
+        "fecha": "2026-05-09",
+        "turbidez_ntu": 155,
+        "ph": 6.84,
+        "conductividad_us": 57
+      },
+      {
+        "fecha": "2026-05-10",
+        "turbidez_ntu": 144,
+        "ph": 6.78,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-05-11",
+        "turbidez_ntu": 150,
+        "ph": 6.8,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-05-12",
+        "turbidez_ntu": 154,
+        "ph": 6.79,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-05-13",
+        "turbidez_ntu": 154,
+        "ph": 6.8,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-05-14",
+        "turbidez_ntu": 148,
+        "ph": 6.81,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-05-15",
+        "turbidez_ntu": 147,
+        "ph": 6.8,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-05-16",
+        "turbidez_ntu": 145,
+        "ph": 6.81,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-17",
+        "turbidez_ntu": 145,
+        "ph": 6.78,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-05-18",
+        "turbidez_ntu": 151,
+        "ph": 6.82,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-19",
+        "turbidez_ntu": 144,
+        "ph": 6.79,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-20",
+        "turbidez_ntu": 159,
+        "ph": 6.76,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-05-21",
+        "turbidez_ntu": 155,
+        "ph": 6.79,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-05-22",
+        "turbidez_ntu": 158,
+        "ph": 6.8,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-23",
+        "turbidez_ntu": 158,
+        "ph": 6.82,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-05-24",
+        "turbidez_ntu": 143,
+        "ph": 6.81,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-05-25",
+        "turbidez_ntu": 157,
+        "ph": 6.79,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-26",
+        "turbidez_ntu": 149,
+        "ph": 6.83,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-05-27",
+        "turbidez_ntu": 144,
+        "ph": 6.83,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-05-28",
+        "turbidez_ntu": 144,
+        "ph": 6.8,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-05-29",
+        "turbidez_ntu": 147,
+        "ph": 6.83,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-05-30",
+        "turbidez_ntu": 156,
+        "ph": 6.82,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-05-31",
+        "turbidez_ntu": 150,
+        "ph": 6.81,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-01",
+        "turbidez_ntu": 143,
+        "ph": 6.82,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-02",
+        "turbidez_ntu": 155,
+        "ph": 6.79,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-03",
+        "turbidez_ntu": 154,
+        "ph": 6.75,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-04",
+        "turbidez_ntu": 151,
+        "ph": 6.8,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-05",
+        "turbidez_ntu": 162,
+        "ph": 6.81,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-06",
+        "turbidez_ntu": 155,
+        "ph": 6.79,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-06-07",
+        "turbidez_ntu": 154,
+        "ph": 6.79,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-08",
+        "turbidez_ntu": 146,
+        "ph": 6.78,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-09",
+        "turbidez_ntu": 136,
+        "ph": 6.8,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-10",
+        "turbidez_ntu": 151,
+        "ph": 6.8,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-11",
+        "turbidez_ntu": 140,
+        "ph": 6.81,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-12",
+        "turbidez_ntu": 151,
+        "ph": 6.8,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-13",
+        "turbidez_ntu": 153,
+        "ph": 6.79,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-06-14",
+        "turbidez_ntu": 140,
+        "ph": 6.83,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-15",
+        "turbidez_ntu": 156,
+        "ph": 6.77,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-06-16",
+        "turbidez_ntu": 151,
+        "ph": 6.8,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-06-17",
+        "turbidez_ntu": 153,
+        "ph": 6.75,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-18",
+        "turbidez_ntu": 366,
+        "ph": 6.68,
+        "conductividad_us": 70
+      },
+      {
+        "fecha": "2026-06-19",
+        "turbidez_ntu": 563,
+        "ph": 6.58,
+        "conductividad_us": 86
+      },
+      {
+        "fecha": "2026-06-20",
+        "turbidez_ntu": 791,
+        "ph": 6.45,
+        "conductividad_us": 97
+      },
+      {
+        "fecha": "2026-06-21",
+        "turbidez_ntu": 984,
+        "ph": 6.34,
+        "conductividad_us": 113
+      },
+      {
+        "fecha": "2026-06-22",
+        "turbidez_ntu": 1189,
+        "ph": 6.21,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-06-23",
+        "turbidez_ntu": 1195,
+        "ph": 6.19,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-06-24",
+        "turbidez_ntu": 1200,
+        "ph": 6.22,
+        "conductividad_us": 125
+      },
+      {
+        "fecha": "2026-06-25",
+        "turbidez_ntu": 1194,
+        "ph": 6.19,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-06-26",
+        "turbidez_ntu": 1193,
+        "ph": 6.2,
+        "conductividad_us": 127
+      },
+      {
+        "fecha": "2026-06-27",
+        "turbidez_ntu": 1204,
+        "ph": 6.21,
+        "conductividad_us": 123
+      },
+      {
+        "fecha": "2026-06-28",
+        "turbidez_ntu": 1202,
+        "ph": 6.19,
+        "conductividad_us": 124
+      },
+      {
+        "fecha": "2026-06-29",
+        "turbidez_ntu": 1197,
+        "ph": 6.16,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-06-30",
+        "turbidez_ntu": 1202,
+        "ph": 6.23,
+        "conductividad_us": 127
+      },
+      {
+        "fecha": "2026-07-01",
+        "turbidez_ntu": 1202,
+        "ph": 6.23,
+        "conductividad_us": 125
+      },
+      {
+        "fecha": "2026-07-02",
+        "turbidez_ntu": 1198,
+        "ph": 6.19,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-07-03",
+        "turbidez_ntu": 1200,
+        "ph": 6.2,
+        "conductividad_us": 124
+      },
+      {
+        "fecha": "2026-07-04",
+        "turbidez_ntu": 1195,
+        "ph": 6.24,
+        "conductividad_us": 124
+      },
+      {
+        "fecha": "2026-07-05",
+        "turbidez_ntu": 1204,
+        "ph": 6.2,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-07-06",
+        "turbidez_ntu": 1208,
+        "ph": 6.23,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-07-07",
+        "turbidez_ntu": 1205,
+        "ph": 6.19,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-07-08",
+        "turbidez_ntu": 1166,
+        "ph": 6.21,
+        "conductividad_us": 123
+      },
+      {
+        "fecha": "2026-07-09",
+        "turbidez_ntu": 1127,
+        "ph": 6.23,
+        "conductividad_us": 119
+      },
+      {
+        "fecha": "2026-07-10",
+        "turbidez_ntu": 1084,
+        "ph": 6.28,
+        "conductividad_us": 118
+      },
+      {
+        "fecha": "2026-07-11",
+        "turbidez_ntu": 1039,
+        "ph": 6.31,
+        "conductividad_us": 116
+      },
+      {
+        "fecha": "2026-07-12",
+        "turbidez_ntu": 1019,
+        "ph": 6.28,
+        "conductividad_us": 111
+      },
+      {
+        "fecha": "2026-07-13",
+        "turbidez_ntu": 966,
+        "ph": 6.33,
+        "conductividad_us": 110
+      },
+      {
+        "fecha": "2026-07-14",
+        "turbidez_ntu": 924,
+        "ph": 6.35,
+        "conductividad_us": 109
+      },
+      {
+        "fecha": "2026-07-15",
+        "turbidez_ntu": 882,
+        "ph": 6.38,
+        "conductividad_us": 105
+      },
+      {
+        "fecha": "2026-07-16",
+        "turbidez_ntu": 849,
+        "ph": 6.42,
+        "conductividad_us": 104
+      },
+      {
+        "fecha": "2026-07-17",
+        "turbidez_ntu": 802,
+        "ph": 6.45,
+        "conductividad_us": 101
+      },
+      {
+        "fecha": "2026-07-18",
+        "turbidez_ntu": 760,
+        "ph": 6.45,
+        "conductividad_us": 97
+      },
+      {
+        "fecha": "2026-07-19",
+        "turbidez_ntu": 724,
+        "ph": 6.43,
+        "conductividad_us": 96
+      },
+      {
+        "fecha": "2026-07-20",
+        "turbidez_ntu": 697,
+        "ph": 6.52,
+        "conductividad_us": 92
+      },
+      {
+        "fecha": "2026-07-21",
+        "turbidez_ntu": 653,
+        "ph": 6.51,
+        "conductividad_us": 90
+      },
+      {
+        "fecha": "2026-07-22",
+        "turbidez_ntu": 615,
+        "ph": 6.58,
+        "conductividad_us": 86
+      },
+      {
+        "fecha": "2026-07-23",
+        "turbidez_ntu": 574,
+        "ph": 6.57,
+        "conductividad_us": 85
+      },
+      {
+        "fecha": "2026-07-24",
+        "turbidez_ntu": 519,
+        "ph": 6.59,
+        "conductividad_us": 83
+      },
+      {
+        "fecha": "2026-07-25",
+        "turbidez_ntu": 494,
+        "ph": 6.62,
+        "conductividad_us": 83
+      },
+      {
+        "fecha": "2026-07-26",
+        "turbidez_ntu": 463,
+        "ph": 6.63,
+        "conductividad_us": 77
+      },
+      {
+        "fecha": "2026-07-27",
+        "turbidez_ntu": 407,
+        "ph": 6.64,
+        "conductividad_us": 75
+      },
+      {
+        "fecha": "2026-07-28",
+        "turbidez_ntu": 427,
+        "ph": 6.6,
+        "conductividad_us": 78
+      },
+      {
+        "fecha": "2026-07-29",
+        "turbidez_ntu": 413,
+        "ph": 6.63,
+        "conductividad_us": 76
+      },
+      {
+        "fecha": "2026-07-30",
+        "turbidez_ntu": 417,
+        "ph": 6.66,
+        "conductividad_us": 77
+      },
+      {
+        "fecha": "2026-07-31",
+        "turbidez_ntu": 420,
+        "ph": 6.65,
+        "conductividad_us": 76
+      },
+      {
+        "fecha": "2026-08-01",
+        "turbidez_ntu": 412,
+        "ph": 6.69,
+        "conductividad_us": 75
+      },
+      {
+        "fecha": "2026-08-02",
+        "turbidez_ntu": 412,
+        "ph": 6.64,
+        "conductividad_us": 75
+      },
+      {
+        "fecha": "2026-08-03",
+        "turbidez_ntu": 402,
+        "ph": 6.6,
+        "conductividad_us": 75
+      },
+      {
+        "fecha": "2026-08-04",
+        "turbidez_ntu": 400,
+        "ph": 6.69,
+        "conductividad_us": 76
+      },
+      {
+        "fecha": "2026-08-05",
+        "turbidez_ntu": 415,
+        "ph": 6.65,
+        "conductividad_us": 77
+      },
+      {
+        "fecha": "2026-08-06",
+        "turbidez_ntu": 417,
+        "ph": 6.65,
+        "conductividad_us": 78
+      }
+    ]
+  },
+  {
+    "id_sensor": "SEN-YUR-02",
+    "nombre": "Estación Yuruari Norte",
+    "lat": 6.72,
+    "lon": -61.62,
+    "cuenca": "Río Yuruari",
+    "lecturas": [
+      {
+        "fecha": "2026-05-09",
+        "turbidez_ntu": 157,
+        "ph": 6.83,
+        "conductividad_us": 57
+      },
+      {
+        "fecha": "2026-05-10",
+        "turbidez_ntu": 147,
+        "ph": 6.77,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-11",
+        "turbidez_ntu": 152,
+        "ph": 6.82,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-05-12",
+        "turbidez_ntu": 141,
+        "ph": 6.8,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-05-13",
+        "turbidez_ntu": 145,
+        "ph": 6.8,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-14",
+        "turbidez_ntu": 148,
+        "ph": 6.81,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-05-15",
+        "turbidez_ntu": 146,
+        "ph": 6.83,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-05-16",
+        "turbidez_ntu": 145,
+        "ph": 6.78,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-05-17",
+        "turbidez_ntu": 163,
+        "ph": 6.83,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-05-18",
+        "turbidez_ntu": 151,
+        "ph": 6.79,
+        "conductividad_us": 57
+      },
+      {
+        "fecha": "2026-05-19",
+        "turbidez_ntu": 159,
+        "ph": 6.81,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-20",
+        "turbidez_ntu": 155,
+        "ph": 6.78,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-21",
+        "turbidez_ntu": 154,
+        "ph": 6.78,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-05-22",
+        "turbidez_ntu": 142,
+        "ph": 6.8,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-05-23",
+        "turbidez_ntu": 149,
+        "ph": 6.77,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-05-24",
+        "turbidez_ntu": 151,
+        "ph": 6.82,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-25",
+        "turbidez_ntu": 150,
+        "ph": 6.84,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-26",
+        "turbidez_ntu": 155,
+        "ph": 6.84,
+        "conductividad_us": 57
+      },
+      {
+        "fecha": "2026-05-27",
+        "turbidez_ntu": 141,
+        "ph": 6.8,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-28",
+        "turbidez_ntu": 146,
+        "ph": 6.8,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-29",
+        "turbidez_ntu": 149,
+        "ph": 6.85,
+        "conductividad_us": 57
+      },
+      {
+        "fecha": "2026-05-30",
+        "turbidez_ntu": 163,
+        "ph": 6.83,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-05-31",
+        "turbidez_ntu": 152,
+        "ph": 6.84,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-01",
+        "turbidez_ntu": 157,
+        "ph": 6.81,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-02",
+        "turbidez_ntu": 144,
+        "ph": 6.81,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-03",
+        "turbidez_ntu": 151,
+        "ph": 6.84,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-04",
+        "turbidez_ntu": 156,
+        "ph": 6.77,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-05",
+        "turbidez_ntu": 151,
+        "ph": 6.79,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-06",
+        "turbidez_ntu": 149,
+        "ph": 6.82,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-07",
+        "turbidez_ntu": 150,
+        "ph": 6.77,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-08",
+        "turbidez_ntu": 160,
+        "ph": 6.78,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-06-09",
+        "turbidez_ntu": 146,
+        "ph": 6.82,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-06-10",
+        "turbidez_ntu": 160,
+        "ph": 6.85,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-11",
+        "turbidez_ntu": 153,
+        "ph": 6.83,
+        "conductividad_us": 56
+      },
+      {
+        "fecha": "2026-06-12",
+        "turbidez_ntu": 161,
+        "ph": 6.84,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-13",
+        "turbidez_ntu": 156,
+        "ph": 6.8,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-14",
+        "turbidez_ntu": 141,
+        "ph": 6.8,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-15",
+        "turbidez_ntu": 157,
+        "ph": 6.81,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-16",
+        "turbidez_ntu": 148,
+        "ph": 6.81,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-17",
+        "turbidez_ntu": 140,
+        "ph": 6.78,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-06-18",
+        "turbidez_ntu": 139,
+        "ph": 6.82,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-19",
+        "turbidez_ntu": 144,
+        "ph": 6.81,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-20",
+        "turbidez_ntu": 142,
+        "ph": 6.8,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-21",
+        "turbidez_ntu": 159,
+        "ph": 6.81,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-22",
+        "turbidez_ntu": 151,
+        "ph": 6.8,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-23",
+        "turbidez_ntu": 155,
+        "ph": 6.79,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-24",
+        "turbidez_ntu": 150,
+        "ph": 6.8,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-25",
+        "turbidez_ntu": 144,
+        "ph": 6.82,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-26",
+        "turbidez_ntu": 145,
+        "ph": 6.8,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-27",
+        "turbidez_ntu": 158,
+        "ph": 6.83,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-28",
+        "turbidez_ntu": 151,
+        "ph": 6.78,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-29",
+        "turbidez_ntu": 156,
+        "ph": 6.75,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-30",
+        "turbidez_ntu": 155,
+        "ph": 6.81,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-07-01",
+        "turbidez_ntu": 144,
+        "ph": 6.79,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-07-02",
+        "turbidez_ntu": 146,
+        "ph": 6.79,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-07-03",
+        "turbidez_ntu": 149,
+        "ph": 6.82,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-07-04",
+        "turbidez_ntu": 147,
+        "ph": 6.81,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-07-05",
+        "turbidez_ntu": 150,
+        "ph": 6.8,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-07-06",
+        "turbidez_ntu": 153,
+        "ph": 6.77,
+        "conductividad_us": 57
+      },
+      {
+        "fecha": "2026-07-07",
+        "turbidez_ntu": 151,
+        "ph": 6.8,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-07-08",
+        "turbidez_ntu": 152,
+        "ph": 6.76,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-07-09",
+        "turbidez_ntu": 152,
+        "ph": 6.79,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-07-10",
+        "turbidez_ntu": 150,
+        "ph": 6.81,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-07-11",
+        "turbidez_ntu": 152,
+        "ph": 6.77,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-07-12",
+        "turbidez_ntu": 151,
+        "ph": 6.8,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-07-13",
+        "turbidez_ntu": 156,
+        "ph": 6.76,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-07-14",
+        "turbidez_ntu": 149,
+        "ph": 6.8,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-07-15",
+        "turbidez_ntu": 155,
+        "ph": 6.76,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-07-16",
+        "turbidez_ntu": 152,
+        "ph": 6.82,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-07-17",
+        "turbidez_ntu": 154,
+        "ph": 6.78,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-07-18",
+        "turbidez_ntu": 151,
+        "ph": 6.84,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-07-19",
+        "turbidez_ntu": 358,
+        "ph": 6.65,
+        "conductividad_us": 71
+      },
+      {
+        "fecha": "2026-07-20",
+        "turbidez_ntu": 575,
+        "ph": 6.53,
+        "conductividad_us": 86
+      },
+      {
+        "fecha": "2026-07-21",
+        "turbidez_ntu": 785,
+        "ph": 6.47,
+        "conductividad_us": 99
+      },
+      {
+        "fecha": "2026-07-22",
+        "turbidez_ntu": 994,
+        "ph": 6.32,
+        "conductividad_us": 112
+      },
+      {
+        "fecha": "2026-07-23",
+        "turbidez_ntu": 1202,
+        "ph": 6.24,
+        "conductividad_us": 127
+      },
+      {
+        "fecha": "2026-07-24",
+        "turbidez_ntu": 1203,
+        "ph": 6.17,
+        "conductividad_us": 127
+      },
+      {
+        "fecha": "2026-07-25",
+        "turbidez_ntu": 1193,
+        "ph": 6.2,
+        "conductividad_us": 123
+      },
+      {
+        "fecha": "2026-07-26",
+        "turbidez_ntu": 1207,
+        "ph": 6.18,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-07-27",
+        "turbidez_ntu": 1205,
+        "ph": 6.21,
+        "conductividad_us": 125
+      },
+      {
+        "fecha": "2026-07-28",
+        "turbidez_ntu": 1193,
+        "ph": 6.2,
+        "conductividad_us": 124
+      },
+      {
+        "fecha": "2026-07-29",
+        "turbidez_ntu": 1193,
+        "ph": 6.16,
+        "conductividad_us": 125
+      },
+      {
+        "fecha": "2026-07-30",
+        "turbidez_ntu": 1199,
+        "ph": 6.2,
+        "conductividad_us": 123
+      },
+      {
+        "fecha": "2026-07-31",
+        "turbidez_ntu": 1209,
+        "ph": 6.21,
+        "conductividad_us": 125
+      },
+      {
+        "fecha": "2026-08-01",
+        "turbidez_ntu": 1203,
+        "ph": 6.2,
+        "conductividad_us": 123
+      },
+      {
+        "fecha": "2026-08-02",
+        "turbidez_ntu": 1200,
+        "ph": 6.19,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-08-03",
+        "turbidez_ntu": 1197,
+        "ph": 6.17,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-08-04",
+        "turbidez_ntu": 1203,
+        "ph": 6.22,
+        "conductividad_us": 124
+      },
+      {
+        "fecha": "2026-08-05",
+        "turbidez_ntu": 1211,
+        "ph": 6.18,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-08-06",
+        "turbidez_ntu": 1198,
+        "ph": 6.16,
+        "conductividad_us": 126
+      }
+    ]
+  },
+  {
+    "id_sensor": "SEN-VEN-01",
+    "nombre": "Estación Venamo",
+    "lat": 6.78,
+    "lon": -61.12,
+    "cuenca": "Río Venamo",
+    "lecturas": [
+      {
+        "fecha": "2026-05-09",
+        "turbidez_ntu": 153,
+        "ph": 6.78,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-05-10",
+        "turbidez_ntu": 157,
+        "ph": 6.77,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-05-11",
+        "turbidez_ntu": 159,
+        "ph": 6.84,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-05-12",
+        "turbidez_ntu": 155,
+        "ph": 6.77,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-05-13",
+        "turbidez_ntu": 151,
+        "ph": 6.79,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-05-14",
+        "turbidez_ntu": 145,
+        "ph": 6.78,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-05-15",
+        "turbidez_ntu": 153,
+        "ph": 6.78,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-05-16",
+        "turbidez_ntu": 159,
+        "ph": 6.86,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-05-17",
+        "turbidez_ntu": 143,
+        "ph": 6.78,
+        "conductividad_us": 63
+      },
+      {
+        "fecha": "2026-05-18",
+        "turbidez_ntu": 150,
+        "ph": 6.82,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-05-19",
+        "turbidez_ntu": 155,
+        "ph": 6.74,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-05-20",
+        "turbidez_ntu": 156,
+        "ph": 6.75,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-05-21",
+        "turbidez_ntu": 154,
+        "ph": 6.77,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-22",
+        "turbidez_ntu": 158,
+        "ph": 6.75,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-23",
+        "turbidez_ntu": 152,
+        "ph": 6.84,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-05-24",
+        "turbidez_ntu": 149,
+        "ph": 6.78,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-25",
+        "turbidez_ntu": 148,
+        "ph": 6.8,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-05-26",
+        "turbidez_ntu": 150,
+        "ph": 6.79,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-05-27",
+        "turbidez_ntu": 159,
+        "ph": 6.81,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-05-28",
+        "turbidez_ntu": 144,
+        "ph": 6.81,
+        "conductividad_us": 57
+      },
+      {
+        "fecha": "2026-05-29",
+        "turbidez_ntu": 144,
+        "ph": 6.8,
+        "conductividad_us": 63
+      },
+      {
+        "fecha": "2026-05-30",
+        "turbidez_ntu": 150,
+        "ph": 6.84,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-05-31",
+        "turbidez_ntu": 150,
+        "ph": 6.81,
+        "conductividad_us": 57
+      },
+      {
+        "fecha": "2026-06-01",
+        "turbidez_ntu": 159,
+        "ph": 6.8,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-02",
+        "turbidez_ntu": 148,
+        "ph": 6.82,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-03",
+        "turbidez_ntu": 156,
+        "ph": 6.75,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-04",
+        "turbidez_ntu": 152,
+        "ph": 6.76,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-05",
+        "turbidez_ntu": 152,
+        "ph": 6.78,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-06",
+        "turbidez_ntu": 147,
+        "ph": 6.86,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-07",
+        "turbidez_ntu": 139,
+        "ph": 6.78,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-08",
+        "turbidez_ntu": 147,
+        "ph": 6.78,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-09",
+        "turbidez_ntu": 150,
+        "ph": 6.79,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-10",
+        "turbidez_ntu": 153,
+        "ph": 6.83,
+        "conductividad_us": 57
+      },
+      {
+        "fecha": "2026-06-11",
+        "turbidez_ntu": 145,
+        "ph": 6.77,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-12",
+        "turbidez_ntu": 142,
+        "ph": 6.82,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-13",
+        "turbidez_ntu": 143,
+        "ph": 6.77,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-14",
+        "turbidez_ntu": 163,
+        "ph": 6.8,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-15",
+        "turbidez_ntu": 161,
+        "ph": 6.8,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-16",
+        "turbidez_ntu": 145,
+        "ph": 6.78,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-17",
+        "turbidez_ntu": 152,
+        "ph": 6.83,
+        "conductividad_us": 62
+      },
+      {
+        "fecha": "2026-06-18",
+        "turbidez_ntu": 159,
+        "ph": 6.82,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-06-19",
+        "turbidez_ntu": 142,
+        "ph": 6.82,
+        "conductividad_us": 61
+      },
+      {
+        "fecha": "2026-06-20",
+        "turbidez_ntu": 145,
+        "ph": 6.82,
+        "conductividad_us": 58
+      },
+      {
+        "fecha": "2026-06-21",
+        "turbidez_ntu": 158,
+        "ph": 6.79,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-22",
+        "turbidez_ntu": 160,
+        "ph": 6.75,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-23",
+        "turbidez_ntu": 143,
+        "ph": 6.77,
+        "conductividad_us": 59
+      },
+      {
+        "fecha": "2026-06-24",
+        "turbidez_ntu": 146,
+        "ph": 6.77,
+        "conductividad_us": 60
+      },
+      {
+        "fecha": "2026-06-25",
+        "turbidez_ntu": 357,
+        "ph": 6.67,
+        "conductividad_us": 73
+      },
+      {
+        "fecha": "2026-06-26",
+        "turbidez_ntu": 573,
+        "ph": 6.57,
+        "conductividad_us": 85
+      },
+      {
+        "fecha": "2026-06-27",
+        "turbidez_ntu": 777,
+        "ph": 6.46,
+        "conductividad_us": 96
+      },
+      {
+        "fecha": "2026-06-28",
+        "turbidez_ntu": 996,
+        "ph": 6.32,
+        "conductividad_us": 113
+      },
+      {
+        "fecha": "2026-06-29",
+        "turbidez_ntu": 1203,
+        "ph": 6.16,
+        "conductividad_us": 125
+      },
+      {
+        "fecha": "2026-06-30",
+        "turbidez_ntu": 1201,
+        "ph": 6.18,
+        "conductividad_us": 127
+      },
+      {
+        "fecha": "2026-07-01",
+        "turbidez_ntu": 1205,
+        "ph": 6.21,
+        "conductividad_us": 125
+      },
+      {
+        "fecha": "2026-07-02",
+        "turbidez_ntu": 1190,
+        "ph": 6.25,
+        "conductividad_us": 127
+      },
+      {
+        "fecha": "2026-07-03",
+        "turbidez_ntu": 1194,
+        "ph": 6.18,
+        "conductividad_us": 127
+      },
+      {
+        "fecha": "2026-07-04",
+        "turbidez_ntu": 1202,
+        "ph": 6.24,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-07-05",
+        "turbidez_ntu": 1201,
+        "ph": 6.26,
+        "conductividad_us": 124
+      },
+      {
+        "fecha": "2026-07-06",
+        "turbidez_ntu": 1200,
+        "ph": 6.22,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-07-07",
+        "turbidez_ntu": 1203,
+        "ph": 6.22,
+        "conductividad_us": 126
+      },
+      {
+        "fecha": "2026-07-08",
+        "turbidez_ntu": 1206,
+        "ph": 6.18,
+        "conductividad_us": 124
+      },
+      {
+        "fecha": "2026-07-09",
+        "turbidez_ntu": 1206,
+        "ph": 6.22,
+        "conductividad_us": 124
+      },
+      {
+        "fecha": "2026-07-10",
+        "turbidez_ntu": 1192,
+        "ph": 6.22,
+        "conductividad_us": 125
+      },
+      {
+        "fecha": "2026-07-11",
+        "turbidez_ntu": 1194,
+        "ph": 6.22,
+        "conductividad_us": 127
+      },
+      {
+        "fecha": "2026-07-12",
+        "turbidez_ntu": 1194,
+        "ph": 6.21,
+        "conductividad_us": 123
+      },
+      {
+        "fecha": "2026-07-13",
+        "turbidez_ntu": 1209,
+        "ph": 6.14,
+        "conductividad_us": 128
+      },
+      {
+        "fecha": "2026-07-14",
+        "turbidez_ntu": 1194,
+        "ph": 6.2,
+        "conductividad_us": 124
+      },
+      {
+        "fecha": "2026-07-15",
+        "turbidez_ntu": 1171,
+        "ph": 6.21,
+        "conductividad_us": 120
+      },
+      {
+        "fecha": "2026-07-16",
+        "turbidez_ntu": 1125,
+        "ph": 6.27,
+        "conductividad_us": 119
+      },
+      {
+        "fecha": "2026-07-17",
+        "turbidez_ntu": 1077,
+        "ph": 6.26,
+        "conductividad_us": 119
+      },
+      {
+        "fecha": "2026-07-18",
+        "turbidez_ntu": 1049,
+        "ph": 6.25,
+        "conductividad_us": 116
+      },
+      {
+        "fecha": "2026-07-19",
+        "turbidez_ntu": 1006,
+        "ph": 6.32,
+        "conductividad_us": 111
+      },
+      {
+        "fecha": "2026-07-20",
+        "turbidez_ntu": 973,
+        "ph": 6.34,
+        "conductividad_us": 112
+      },
+      {
+        "fecha": "2026-07-21",
+        "turbidez_ntu": 927,
+        "ph": 6.37,
+        "conductividad_us": 108
+      },
+      {
+        "fecha": "2026-07-22",
+        "turbidez_ntu": 892,
+        "ph": 6.43,
+        "conductividad_us": 104
+      },
+      {
+        "fecha": "2026-07-23",
+        "turbidez_ntu": 854,
+        "ph": 6.38,
+        "conductividad_us": 103
+      },
+      {
+        "fecha": "2026-07-24",
+        "turbidez_ntu": 807,
+        "ph": 6.44,
+        "conductividad_us": 98
+      },
+      {
+        "fecha": "2026-07-25",
+        "turbidez_ntu": 773,
+        "ph": 6.44,
+        "conductividad_us": 98
+      },
+      {
+        "fecha": "2026-07-26",
+        "turbidez_ntu": 723,
+        "ph": 6.44,
+        "conductividad_us": 97
+      },
+      {
+        "fecha": "2026-07-27",
+        "turbidez_ntu": 693,
+        "ph": 6.48,
+        "conductividad_us": 94
+      },
+      {
+        "fecha": "2026-07-28",
+        "turbidez_ntu": 649,
+        "ph": 6.52,
+        "conductividad_us": 91
+      },
+      {
+        "fecha": "2026-07-29",
+        "turbidez_ntu": 612,
+        "ph": 6.52,
+        "conductividad_us": 88
+      },
+      {
+        "fecha": "2026-07-30",
+        "turbidez_ntu": 579,
+        "ph": 6.57,
+        "conductividad_us": 87
+      },
+      {
+        "fecha": "2026-07-31",
+        "turbidez_ntu": 543,
+        "ph": 6.57,
+        "conductividad_us": 85
+      },
+      {
+        "fecha": "2026-08-01",
+        "turbidez_ntu": 487,
+        "ph": 6.62,
+        "conductividad_us": 79
+      },
+      {
+        "fecha": "2026-08-02",
+        "turbidez_ntu": 448,
+        "ph": 6.6,
+        "conductividad_us": 77
+      },
+      {
+        "fecha": "2026-08-03",
+        "turbidez_ntu": 406,
+        "ph": 6.62,
+        "conductividad_us": 76
+      },
+      {
+        "fecha": "2026-08-04",
+        "turbidez_ntu": 407,
+        "ph": 6.66,
+        "conductividad_us": 76
+      },
+      {
+        "fecha": "2026-08-05",
+        "turbidez_ntu": 410,
+        "ph": 6.67,
+        "conductividad_us": 76
+      },
+      {
+        "fecha": "2026-08-06",
+        "turbidez_ntu": 408,
+        "ph": 6.64,
+        "conductividad_us": 76
+      }
+    ]
+  }
+]

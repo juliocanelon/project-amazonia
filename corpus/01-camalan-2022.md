@@ -1,0 +1,20 @@
+---
+id: "camalan-2022"
+autores: "Camalan, S., Cui, K., Pauca, V. P., Alqahtani, S., Silman, M., Chan, R., Plemmons, R. J., Dethier, E. N., Fernandez, L. E., & Lutz, D. A."
+anio: 2022
+titulo: "Change detection of Amazonian alluvial gold mining using deep learning and Sentinel-2 imagery"
+revista: "Remote Sensing, 14(7), 1746"
+doi: "10.3390/rs14071746"
+indexacion: "Scopus, Web of Science"
+tipo: "resumen_elaborado"
+---
+
+NOTA: Resumen elaborado en español. No reproduce texto literal del original.
+
+Este artículo aborda un problema técnico central para el monitoreo ambiental: cómo detectar, con imágenes satelitales, los cambios finos que produce la minería aurífera artesanal y de pequeña escala (ASGM, por sus siglas en inglés) sobre el paisaje, en particular la aparición, crecimiento o abandono de las lagunas de sedimentación que deja esta actividad. El objetivo del equipo, integrado por investigadores de Wake Forest University, City University of Hong Kong y Dartmouth College, fue comparar dos enfoques de aprendizaje automático para clasificar esos cambios a partir de pares de imágenes Sentinel-2 tomadas en distintos momentos.
+
+La zona de estudio principal fue la región de Madre de Dios, en la Amazonía peruana, un área con alta actividad de minería artesanal. Allí se seleccionaron dieciséis subregiones representativas, para las cuales se obtuvieron imágenes Sentinel-2 de dos años distintos (2019 y 2021) y se corrigieron mediante técnicas de emparejamiento de histogramas para reducir el ruido atmosférico. Un grupo de especialistas etiquetó manualmente cada laguna minera según su estado (activa, en transición o inactiva), lo que permitió construir un conjunto de datos abierto para entrenar y evaluar los modelos. Se probaron dos métodos: uno supervisado, una red neuronal que combina componentes convolucionales y recurrentes (denominada E-ReCNN), y uno semisupervisado basado en máquinas de vectores de soporte con un regularizador de variación total suavizada (SVM-STV), enriquecido con información de color en el espacio La*b*. Ambos modelos se probaron con distintas combinaciones de bandas espectrales (3, 6 y 10 canales) para determinar qué información resultaba más útil. De manera relevante para este proyecto, los autores no se limitaron a evaluar el desempeño en Perú, sino que construyeron un conjunto adicional de prueba "fuera de muestra" con sitios de minería aluvial de intensidad similar en Venezuela, Indonesia y Birmania, para poner a prueba la capacidad de generalización geográfica de los modelos.
+
+Los resultados muestran que el modelo supervisado E-ReCNN superó de forma consistente al enfoque semisupervisado. Con imágenes de seis canales espectrales y corrección de histograma, E-ReCNN alcanzó los mejores indicadores de concordancia en la región de entrenamiento, y mantuvo un desempeño casi equivalente al aplicarse, sin reentrenamiento, a las regiones fuera de muestra, incluida Venezuela. La detección de la mera presencia o ausencia de agua fue más precisa que la detección de cambios más sutiles, como el aumento o disminución de actividad de una laguna, lo que sugiere que este tipo de modelos es más confiable para mapear la extensión total de la minería que para inferir su intensidad o su tendencia temporal exacta. El preprocesamiento de las imágenes y la elección del número de bandas espectrales resultaron determinantes para la calidad de los resultados.
+
+Para la detección de minería ilegal de oro en la Amazonía y en la cuenca del Orinoco venezolano, este trabajo es uno de los antecedentes técnicos más directos disponibles, porque demuestra —con datos reales de sitios venezolanos usados como prueba externa— que un modelo entrenado en otro país amazónico puede generalizar razonablemente bien al territorio venezolano. Esto abre una ruta metodológica concreta: adaptar o reentrenar arquitecturas similares con imágenes Sentinel-2 de acceso gratuito para construir un sistema de monitoreo del Arco Minero del Orinoco, aprovechando además el conjunto de datos abierto que los autores publicaron como punto de partida.

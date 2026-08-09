@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-base-900 text-texto-primario antialiased;
+}
+
+/* Scrollbar sobria para el tema oscuro */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: theme("colors.base.900");
+}
+::-webkit-scrollbar-thumb {
+  background: theme("colors.base.700");
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: theme("colors.base.600");
+}
+
+/* Marcador de estación de sensor (telemetría simulada): rombo cian */
+.marcador-sensor {
+  width: 12px;
+  height: 12px;
+  background: #38bdf8;
+  border: 1.5px solid #0b1017;
+  box-shadow: 0 0 0 1.5px #38bdf8;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+/* Ajustes de MapLibre para integrarse con el tema oscuro */
+.maplibregl-popup-content {
+  @apply bg-base-800 text-texto-primario border border-base-600 rounded-md text-sm;
+}
+.maplibregl-ctrl-group {
+  @apply bg-base-800 border border-base-600;
+}
+.maplibregl-ctrl-group button + button {
+  border-top-color: theme("colors.base.600");
+}

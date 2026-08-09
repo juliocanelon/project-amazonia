@@ -1,0 +1,705 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ALT-2026-001",
+        "fecha_deteccion": "2026-07-14",
+        "superficie_ha": 34.7,
+        "severidad": "alta",
+        "confianza_modelo": 0.91,
+        "sensor_origen": "Sentinel-1 SAR",
+        "cuenca": "Río Cuyuní",
+        "distancia_area_protegida_km": 12.4,
+        "persistencia_dias": 45,
+        "id_sensor_agua": "SEN-CUY-03"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -61.78497,
+              6.42
+            ],
+            [
+              -61.80498,
+              6.46307
+            ],
+            [
+              -61.85726,
+              6.46692
+            ],
+            [
+              -61.86012,
+              6.42
+            ],
+            [
+              -61.85465,
+              6.37758
+            ],
+            [
+              -61.80632,
+              6.37925
+            ],
+            [
+              -61.78497,
+              6.42
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ALT-2026-002",
+        "fecha_deteccion": "2026-06-02",
+        "superficie_ha": 12.3,
+        "severidad": "media",
+        "confianza_modelo": 0.78,
+        "sensor_origen": "Sentinel-2 MSI",
+        "cuenca": "Río Cuyuní",
+        "distancia_area_protegida_km": 22,
+        "persistencia_dias": 20,
+        "id_sensor_agua": null
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -61.63625,
+              6.51
+            ],
+            [
+              -61.65199,
+              6.52379
+            ],
+            [
+              -61.6724,
+              6.53133
+            ],
+            [
+              -61.68236,
+              6.51
+            ],
+            [
+              -61.67195,
+              6.48944
+            ],
+            [
+              -61.64747,
+              6.48843
+            ],
+            [
+              -61.63625,
+              6.51
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ALT-2026-003",
+        "fecha_deteccion": "2026-03-11",
+        "superficie_ha": 5.1,
+        "severidad": "baja",
+        "confianza_modelo": 0.64,
+        "sensor_origen": "Sentinel-2 MSI",
+        "cuenca": "Río Cuyuní",
+        "distancia_area_protegida_km": 30.5,
+        "persistencia_dias": 12,
+        "id_sensor_agua": null
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -61.96871,
+              6.35
+            ],
+            [
+              -61.97317,
+              6.36175
+            ],
+            [
+              -61.98718,
+              6.36236
+            ],
+            [
+              -61.99152,
+              6.35
+            ],
+            [
+              -61.98587,
+              6.3399
+            ],
+            [
+              -61.97393,
+              6.33955
+            ],
+            [
+              -61.96871,
+              6.35
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ALT-2026-004",
+        "fecha_deteccion": "2026-06-20",
+        "superficie_ha": 58.2,
+        "severidad": "alta",
+        "confianza_modelo": 0.94,
+        "sensor_origen": "Sentinel-1 SAR",
+        "cuenca": "Río Caroní",
+        "distancia_area_protegida_km": 6.8,
+        "persistencia_dias": 60,
+        "id_sensor_agua": "SEN-CAR-01"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -62.66715,
+              6.05
+            ],
+            [
+              -62.71189,
+              6.11564
+            ],
+            [
+              -62.78377,
+              6.10817
+            ],
+            [
+              -62.83567,
+              6.05
+            ],
+            [
+              -62.78694,
+              5.98637
+            ],
+            [
+              -62.71368,
+              5.98745
+            ],
+            [
+              -62.66715,
+              6.05
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ALT-2026-005",
+        "fecha_deteccion": "2026-05-28",
+        "superficie_ha": 18.9,
+        "severidad": "media",
+        "confianza_modelo": 0.81,
+        "sensor_origen": "Sentinel-2 MSI",
+        "cuenca": "Río Caroní",
+        "distancia_area_protegida_km": 15.2,
+        "persistencia_dias": 33,
+        "id_sensor_agua": null
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -62.58339,
+              6.22
+            ],
+            [
+              -62.59348,
+              6.24845
+            ],
+            [
+              -62.62221,
+              6.24102
+            ],
+            [
+              -62.63521,
+              6.22
+            ],
+            [
+              -62.62628,
+              6.19197
+            ],
+            [
+              -62.59952,
+              6.20196
+            ],
+            [
+              -62.58339,
+              6.22
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ALT-2026-006",
+        "fecha_deteccion": "2026-04-05",
+        "superficie_ha": 7.4,
+        "severidad": "baja",
+        "confianza_modelo": 0.69,
+        "sensor_origen": "Fusión Sentinel-1/2",
+        "cuenca": "Río Caroní",
+        "distancia_area_protegida_km": 41,
+        "persistencia_dias": 18,
+        "id_sensor_agua": null
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -62.86094,
+              5.88
+            ],
+            [
+              -62.87113,
+              5.89528
+            ],
+            [
+              -62.88945,
+              5.89628
+            ],
+            [
+              -62.89439,
+              5.88
+            ],
+            [
+              -62.88724,
+              5.86753
+            ],
+            [
+              -62.87376,
+              5.86925
+            ],
+            [
+              -62.86094,
+              5.88
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ALT-2026-007",
+        "fecha_deteccion": "2026-07-02",
+        "superficie_ha": 41,
+        "severidad": "alta",
+        "confianza_modelo": 0.88,
+        "sensor_origen": "Sentinel-1 SAR",
+        "cuenca": "Río Caroní",
+        "distancia_area_protegida_km": 9.1,
+        "persistencia_dias": 52,
+        "id_sensor_agua": null
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -62.64637,
+              6.13
+            ],
+            [
+              -62.68147,
+              6.16191
+            ],
+            [
+              -62.7175,
+              6.16014
+            ],
+            [
+              -62.74144,
+              6.13
+            ],
+            [
+              -62.71888,
+              6.09749
+            ],
+            [
+              -62.67727,
+              6.09085
+            ],
+            [
+              -62.64637,
+              6.13
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ALT-2026-008",
+        "fecha_deteccion": "2026-07-21",
+        "superficie_ha": 46.5,
+        "severidad": "alta",
+        "confianza_modelo": 0.9,
+        "sensor_origen": "Sentinel-1 SAR",
+        "cuenca": "Río Yuruari",
+        "distancia_area_protegida_km": 4.2,
+        "persistencia_dias": 70,
+        "id_sensor_agua": "SEN-YUR-02"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -61.55518,
+              6.72
+            ],
+            [
+              -61.60036,
+              6.75378
+            ],
+            [
+              -61.64894,
+              6.76979
+            ],
+            [
+              -61.67912,
+              6.72
+            ],
+            [
+              -61.64362,
+              6.67936
+            ],
+            [
+              -61.59457,
+              6.67625
+            ],
+            [
+              -61.55518,
+              6.72
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ALT-2026-009",
+        "fecha_deteccion": "2026-06-11",
+        "superficie_ha": 15.7,
+        "severidad": "media",
+        "confianza_modelo": 0.76,
+        "sensor_origen": "Sentinel-2 MSI",
+        "cuenca": "Río Yuruari",
+        "distancia_area_protegida_km": 19.4,
+        "persistencia_dias": 27,
+        "id_sensor_agua": null
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -61.45372,
+              6.83
+            ],
+            [
+              -61.4661,
+              6.85391
+            ],
+            [
+              -61.49315,
+              6.85261
+            ],
+            [
+              -61.50275,
+              6.83
+            ],
+            [
+              -61.49301,
+              6.80762
+            ],
+            [
+              -61.46976,
+              6.8124
+            ],
+            [
+              -61.45372,
+              6.83
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ALT-2026-010",
+        "fecha_deteccion": "2026-05-19",
+        "superficie_ha": 22.4,
+        "severidad": "media",
+        "confianza_modelo": 0.83,
+        "sensor_origen": "Sentinel-2 MSI",
+        "cuenca": "Río Yuruari",
+        "distancia_area_protegida_km": 13.7,
+        "persistencia_dias": 30,
+        "id_sensor_agua": null
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -61.70852,
+              6.64
+            ],
+            [
+              -61.72926,
+              6.65848
+            ],
+            [
+              -61.75219,
+              6.66097
+            ],
+            [
+              -61.76772,
+              6.64
+            ],
+            [
+              -61.75112,
+              6.62086
+            ],
+            [
+              -61.72894,
+              6.62097
+            ],
+            [
+              -61.70852,
+              6.64
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ALT-2026-011",
+        "fecha_deteccion": "2026-06-27",
+        "superficie_ha": 29.8,
+        "severidad": "alta",
+        "confianza_modelo": 0.87,
+        "sensor_origen": "Sentinel-1 SAR",
+        "cuenca": "Río Venamo",
+        "distancia_area_protegida_km": 3.1,
+        "persistencia_dias": 48,
+        "id_sensor_agua": "SEN-VEN-01"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -61.07144,
+              6.78
+            ],
+            [
+              -61.1,
+              6.81439
+            ],
+            [
+              -61.14315,
+              6.81982
+            ],
+            [
+              -61.15473,
+              6.78
+            ],
+            [
+              -61.14037,
+              6.74497
+            ],
+            [
+              -61.10232,
+              6.7496
+            ],
+            [
+              -61.07144,
+              6.78
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ALT-2026-012",
+        "fecha_deteccion": "2026-03-24",
+        "superficie_ha": 6.2,
+        "severidad": "baja",
+        "confianza_modelo": 0.66,
+        "sensor_origen": "Sentinel-2 MSI",
+        "cuenca": "Río Venamo",
+        "distancia_area_protegida_km": 25.8,
+        "persistencia_dias": 15,
+        "id_sensor_agua": null
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -61.03504,
+              6.69
+            ],
+            [
+              -61.04298,
+              6.70207
+            ],
+            [
+              -61.05611,
+              6.70051
+            ],
+            [
+              -61.06562,
+              6.69
+            ],
+            [
+              -61.05851,
+              6.67536
+            ],
+            [
+              -61.04376,
+              6.67927
+            ],
+            [
+              -61.03504,
+              6.69
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ALT-2026-013",
+        "fecha_deteccion": "2026-05-30",
+        "superficie_ha": 19.1,
+        "severidad": "media",
+        "confianza_modelo": 0.8,
+        "sensor_origen": "Fusión Sentinel-1/2",
+        "cuenca": "Río Venamo",
+        "distancia_area_protegida_km": 17.3,
+        "persistencia_dias": 35,
+        "id_sensor_agua": null
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -61.15888,
+              6.86
+            ],
+            [
+              -61.17548,
+              6.88497
+            ],
+            [
+              -61.20533,
+              6.88636
+            ],
+            [
+              -61.2116,
+              6.86
+            ],
+            [
+              -61.20153,
+              6.84017
+            ],
+            [
+              -61.18021,
+              6.84316
+            ],
+            [
+              -61.15888,
+              6.86
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ALT-2026-014",
+        "fecha_deteccion": "2026-07-09",
+        "superficie_ha": 37.6,
+        "severidad": "alta",
+        "confianza_modelo": 0.92,
+        "sensor_origen": "Sentinel-1 SAR",
+        "cuenca": "Río Venamo",
+        "distancia_area_protegida_km": 8,
+        "persistencia_dias": 55,
+        "id_sensor_agua": null
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -61.16798,
+              6.73
+            ],
+            [
+              -61.19333,
+              6.77587
+            ],
+            [
+              -61.24252,
+              6.76874
+            ],
+            [
+              -61.26565,
+              6.73
+            ],
+            [
+              -61.24618,
+              6.68497
+            ],
+            [
+              -61.19353,
+              6.68448
+            ],
+            [
+              -61.16798,
+              6.73
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
