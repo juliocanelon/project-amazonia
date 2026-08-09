@@ -222,6 +222,74 @@ reescribe `lib/embeddings.ts`), actualiza la dimensión del vector en
 
 ---
 
+## 🛠️ Bitácora de puesta en marcha (decisiones e incidencias)
+
+Registro del proceso real de construcción y despliegue del prototipo, pensado
+como insumo para el informe. Documenta las decisiones de diseño tomadas y las
+incidencias técnicas encontradas con su resolución.
+
+### Secuencia de puesta en marcha
+
+1. **Construcción de la app** (Next.js 14 App Router + TypeScript + Tailwind):
+   tablero (mapa MapLibre, panel de detalle, gráficas), asistente RAG y página
+   de transparencia `/acerca`.
+2. **Preparación del corpus**: los PDF y notas descargados se transcribieron a
+   resúmenes en español (`.md` con front-matter bibliográfico) en una sesión
+   aparte, respetando la regla de no reproducir texto literal.
+3. **Base vectorial (Supabase)**: ejecución de `supabase/schema.sql` (extensión
+   `vector`, tabla `fragmentos_corpus`, índice HNSW y función
+   `match_fragmentos`).
+4. **Credenciales**: alta de claves de Supabase, Voyage AI y Anthropic en
+   `.env.local` (nunca versionadas).
+5. **Indexación**: `npm run indexar-corpus` — fragmentación (~500 tokens con
+   solapamiento), embeddings con Voyage y carga en pgvector.
+6. **Verificación**: pruebas de conectividad de cada servicio y prueba
+   extremo-a-extremo del circuito RAG.
+7. **Publicación**: commit inicial y `git push` a GitHub; despliegue en Vercel.
+
+### Decisiones de diseño
+
+| Decisión | Justificación |
+|---|---|
+| **Corpus mixto ciencia + prensa**, con campo `tipo` (`resumen_elaborado` / `prensa`) | El fenómeno (minería ilegal) se documenta tanto en literatura arbitrada como en informes de organismos y prensa. Se incorporan ambos, pero **visiblemente distinguidos** en la interfaz y al citar, para no equiparar prensa con ciencia revisada por pares. |
+| **Ampliación de 12 → 24 fuentes** (14 científicas + 10 de prensa) | Durante el procesamiento del corpus se localizaron fuentes venezolanas relevantes sobre mercurio y minería no incluidas en la lista base. Las 6 científicas nuevas **no figuran en `docs/referencias.json`**; sus datos bibliográficos se tomaron directamente del propio documento y así se declara en la NOTA de cada archivo y con una etiqueta en `/acerca`. |
+| **Embeddings: Voyage `voyage-3.5-lite` (1024 dim)** | Modelo multilingüe (el corpus está en español), con **capa gratuita sin tarjeta** y 200M tokens gratuitos. La dimensión 1024 fija el esquema de la tabla. |
+| **Generación: `claude-sonnet-5` con degradación elegante** | Si falta `ANTHROPIC_API_KEY`, la app no se rompe: muestra los fragmentos recuperados con sus citas y un aviso. Esto permite operar el RAG (recuperación) aun sin créditos de generación. |
+| **RLS activado en Supabase** | La app accede **solo desde el servidor** con la `service_role` key (que ignora RLS). Activar Row Level Security sin políticas bloquea el acceso anónimo público sin afectar la app. |
+| **Anti-alucinación en el prompt del sistema** | El asistente responde **exclusivamente** con los fragmentos recuperados, cita autor+año, distingue prensa de ciencia y declara explícitamente cuando el corpus no cubre la pregunta. |
+
+### Incidencias encontradas y su resolución
+
+| Incidencia | Causa | Resolución |
+|---|---|---|
+| **Límite de tasa de Voyage (HTTP 429)** al indexar | La capa gratuita sin método de pago está limitada a **3 peticiones/min** y 10K tokens/min. | Se añadió al indexador un **espaciado de ~22 s entre peticiones** y **reintento automático** ante 429 (`RETARDO_MS` en `scripts/indexar-corpus.ts`). La indexación tarda unos minutos pero **no requiere tarjeta**. |
+| **Función `match_fragmentos` ausente** tras correr el schema | El `schema.sql` se aplicó de forma parcial (la tabla se creó, la función no). | Como el script es **idempotente** (`create table if not exists`, `create or replace function`), bastó **re-ejecutarlo completo** en el SQL Editor. |
+| **Aviso de Supabase: tabla sin RLS** | Buenas prácticas de seguridad de Supabase. | Se eligió **"Run and enable RLS"**: no afecta a la app (usa `service_role`) y cierra el acceso anónimo. |
+| **Clave de Voyage con prefijo duplicado** (`pa-pa-…`) | Al pegar la clave sobre el ejemplo de la plantilla quedó el prefijo `pa-` repetido. | Se detectó con una **validación de formato** y una **prueba de conexión en vivo**; corregida, la prueba devolvió un embedding de 1024 dimensiones. |
+| **Valores `null` del front-matter guardados como texto `"null"`** | El parser mínimo de front-matter no distinguía el literal `null`. | Se normalizó en el indexador: `fecha`, `url` e `indexacion` con valor `"null"` se guardan como `NULL` real. |
+| **Vulnerabilidad de seguridad en Next.js 14.2.15** | Versión con CVE conocido. | Actualización a **`next@^14.2.35`**. |
+
+### Reproducibilidad (resumen paso a paso)
+
+```bash
+# 1. Dependencias
+npm install
+
+# 2. Variables de entorno (ver .env.example para el formato de cada valor)
+cp .env.example .env.local   # y rellenar Supabase, Voyage y (opcional) Anthropic
+
+# 3. En Supabase → SQL Editor: ejecutar supabase/schema.sql completo
+#    (al aparecer el aviso de RLS, elegir "Run and enable RLS")
+
+# 4. Indexar el corpus (respeta el límite gratuito de Voyage; tarda unos minutos)
+npm run indexar-corpus
+
+# 5. Ejecutar
+npm run dev   # http://localhost:3000
+```
+
+---
+
 ## 📜 Scripts
 
 | Script | Descripción |

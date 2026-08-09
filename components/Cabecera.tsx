@@ -10,9 +10,24 @@ const NAV = [
 ];
 
 /**
- * Cabecera con navegación + banner permanente de transparencia.
- * El banner NO es descartable a propósito: declara el alcance real del
- * prototipo en todo momento (requisito académico no negociable).
+ * Cabecera — navegación global + banner permanente de transparencia.
+ *
+ * QUÉ HACE: barra superior fija con las tres rutas del prototipo (mapa,
+ * asistente RAG, acerca) y un banner que declara el alcance real del sistema.
+ *
+ * ROL EN EL SISTEMA: capa de presentación transversal. Se monta una sola vez en
+ * `app/layout.tsx`, por lo que el banner acompaña a TODAS las vistas.
+ *
+ * DECISIÓN DE ARQUITECTURA: el banner es NO descartable a propósito. La
+ * "frontera de honestidad" (distinguir lo real de lo simulado/pre-calculado) es
+ * un requisito académico no negociable; por eso se ancla en el layout raíz y no
+ * en cada página, para que sea imposible navegar sin verlo.
+ *
+ * PARA EL INFORME: materializa el principio de transparencia de alcance a nivel
+ * de arquitectura de UI —la restricción se cumple por construcción, no por
+ * disciplina del desarrollador—. El texto del banner cita literalmente el
+ * alcance del prototipo (RAG real; detecciones pre-calculadas; telemetría
+ * simulada).
  */
 export default function Cabecera() {
   const pathname = usePathname();

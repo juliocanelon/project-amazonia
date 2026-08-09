@@ -17,9 +17,26 @@ import type { SensorTelemetria } from "@/lib/tipos";
 import EtiquetaOrigen from "./EtiquetaOrigen";
 
 /**
- * Gráficas de telemetría del sensor asociado a una alerta.
- * El periodo de la alerta (ventana del disturbio) se resalta visualmente.
- * Los datos son SIMULADOS (ver etiqueta).
+ * GraficaTelemetria — series temporales del sensor asociado a una alerta.
+ *
+ * QUÉ HACE: grafica turbidez, pH y conductividad del sensor a lo largo del
+ * tiempo (Recharts), resaltando la ventana temporal del disturbio (el periodo
+ * de la detección) para correlacionar visualmente sensor y evento.
+ *
+ * ROL EN EL SISTEMA: es la cara visible de la CAPA SIMULADA (telemetría IoT).
+ * Vive dentro de PanelAlerta, bajo la ficha RAG.
+ *
+ * DECISIÓN DE ARQUITECTURA:
+ *  - Los datos se generan de forma reproducible (PRNG con semilla fija, ver
+ *    `scripts/generar-datos.ts`) con un pico sincronizado a la fecha de
+ *    detección; no provienen de sensores reales.
+ *  - IMPORTANTE (dominio): el sistema NO mide mercurio. Los sensores modelan
+ *    PROXIES (turbidez, pH, conductividad) que orientan dónde priorizar el
+ *    muestreo de laboratorio. El componente lleva la etiqueta "simulado".
+ *
+ * PARA EL INFORME: representa la telemetría que, en un despliegue real, llegaría
+ * de nodos ESP32 vía MQTT/LoRaWAN. La distinción proxy-vs-mercurio es un punto
+ * de rigor científico del proyecto.
  */
 export default function GraficaTelemetria({
   sensor,

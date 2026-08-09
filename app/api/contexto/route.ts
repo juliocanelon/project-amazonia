@@ -1,3 +1,26 @@
+/**
+ * app/api/contexto/route.ts — endpoint RAG "ficha de una alerta".
+ *
+ * QUÉ HACE: recibe { alertaId }, localiza la alerta en el GeoJSON, construye una
+ * consulta a partir de sus atributos, recupera los fragmentos más relevantes del
+ * corpus y genera una ficha de contexto con citas. Devuelve { ficha, fuentes[] }.
+ *
+ * ROL EN EL SISTEMA: es la frontera servidor de la capa RAG para el tablero.
+ * Orquesta recuperación (lib/rag) + generación (lib/generacion) y es el único
+ * lugar donde se tocan las claves de API.
+ *
+ * DECISIÓN DE ARQUITECTURA:
+ *  - `runtime = "nodejs"` (no Edge): los SDK de Anthropic y Supabase requieren
+ *    APIs de Node.
+ *  - El GeoJSON se lee por HTTP desde el `origin` de la petición, no del sistema
+ *    de archivos, para funcionar de forma robusta en el entorno serverless de
+ *    Vercel.
+ *  - Toda la lógica sensible vive aquí (servidor); el cliente solo consume JSON.
+ *
+ * PARA EL INFORME: es el punto de integración entre el evento geoespacial
+ * (pre-calculado) y la capa semántica (real). Ejemplifica cómo se "aterriza" el
+ * RAG a un caso de uso operativo concreto.
+ */
 import { NextRequest, NextResponse } from "next/server";
 import { recuperarFragmentos, extraerFuentes } from "@/lib/rag";
 import { generarRespuestaRAG } from "@/lib/generacion";
@@ -5,13 +28,6 @@ import type { ColeccionAlertas } from "@/lib/tipos";
 
 // Ejecutar en Node.js (el SDK de Anthropic y Supabase requieren APIs de Node).
 export const runtime = "nodejs";
-
-/**
- * Ficha de contexto científico para una alerta.
- * Recibe { alertaId }, localiza la alerta en el GeoJSON, recupera los
- * fragmentos más relevantes del corpus y genera la ficha con citas.
- * Devuelve { ficha, fuentes[], ... }.
- */
 export async function POST(req: NextRequest) {
   try {
     const { alertaId } = await req.json();

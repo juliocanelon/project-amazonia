@@ -1,3 +1,19 @@
+/**
+ * lib/severidad.ts — semántica visual de la severidad de las alertas.
+ *
+ * QUÉ HACE: centraliza los colores, etiquetas y clases CSS asociados a cada
+ * nivel de severidad (alta/media/baja).
+ *
+ * ROL EN EL SISTEMA: utilidad de presentación compartida por el mapa, su
+ * leyenda, el panel de filtros y el panel de detalle.
+ *
+ * DECISIÓN DE ARQUITECTURA: un único origen para la codificación por color evita
+ * inconsistencias entre componentes (que el rojo signifique lo mismo en el mapa
+ * y en el panel) y facilita ajustar la paleta en un solo sitio.
+ *
+ * PARA EL INFORME: la paleta por severidad es parte del diseño de visualización
+ * orientado a lectura rápida en pantalla de proyección durante la defensa.
+ */
 import type { Severidad } from "./tipos";
 
 /** Colores hex por severidad (compartidos entre mapa, leyenda y etiquetas). */

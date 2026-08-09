@@ -1,3 +1,23 @@
+/**
+ * app/acerca/page.tsx — ruta `/acerca`: página de transparencia de alcance.
+ *
+ * QUÉ HACE: explica en detalle qué está implementado y qué no, la "frontera de
+ * honestidad" (real / pre-calculado / simulado), cómo funciona la capa RAG, la
+ * aclaración sobre el mercurio (proxies, no medición directa) y el listado
+ * completo de fuentes del corpus (científicas y de prensa).
+ *
+ * ROL EN EL SISTEMA: es el cumplimiento explícito del requisito académico de
+ * declarar el alcance real del prototipo. Complementa al banner permanente con
+ * la versión extensa y verificable.
+ *
+ * DECISIÓN DE ARQUITECTURA: las listas bibliográficas se mantienen como datos en
+ * este archivo (no se consultan a la BD) para que la página sea estática y
+ * autocontenida; deben mantenerse en sincronía con `corpus/`.
+ *
+ * PARA EL INFORME: esta página es, en sí misma, evidencia del principio de
+ * transparencia; su contenido puede citarse casi textualmente al describir el
+ * alcance y las limitaciones del sistema.
+ */
 import EtiquetaOrigen from "@/components/EtiquetaOrigen";
 
 export const metadata = {

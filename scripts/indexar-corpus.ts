@@ -39,6 +39,32 @@ const CHARS_POR_TOKEN = 4;
 const MAX_CHARS_CHUNK = 500 * CHARS_POR_TOKEN; // ~2000 chars
 const SOLAPAMIENTO_CHARS = 50 * CHARS_POR_TOKEN; // ~200 chars
 
+// Control de tasa para la capa gratuita de Voyage (sin método de pago): 3 RPM.
+// Espaciamos las peticiones ~22 s (una cada ~1/3 de minuto) y reintentamos ante
+// un 429. Con método de pago o límites mayores, baja RETARDO_MS a 0.
+const RETARDO_MS = 22_000;
+const REINTENTOS_MAX = 4;
+const ESPERA_429_MS = 65_000;
+
+const dormir = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+/** Genera embeddings reintentando ante un 429 (límite de tasa) con espera. */
+async function embeddingsConReintento(chunks: string[]): Promise<number[][]> {
+  for (let intento = 1; ; intento++) {
+    try {
+      return await generarEmbeddings(chunks, "document");
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      const es429 = msg.includes("(429)");
+      if (!es429 || intento >= REINTENTOS_MAX) throw e;
+      console.log(
+        `    · Límite de tasa (429). Espero ${ESPERA_429_MS / 1000}s y reintento (${intento}/${REINTENTOS_MAX - 1})…`
+      );
+      await dormir(ESPERA_429_MS);
+    }
+  }
+}
+
 interface Metadatos {
   fuente_id: string;
   autores: string;
@@ -119,10 +145,16 @@ async function main() {
     process.exit(1);
   }
 
-  console.log(`Indexando ${archivos.length} archivos del corpus…\n`);
+  console.log(`Indexando ${archivos.length} archivos del corpus…`);
+  if (RETARDO_MS > 0) {
+    console.log(
+      `(Espaciado de ${RETARDO_MS / 1000}s entre peticiones para respetar el límite gratuito de Voyage; tardará unos minutos.)\n`
+    );
+  }
   let totalChunks = 0;
   let cientificas = 0;
   let prensa = 0;
+  let procesados = 0;
 
   for (const archivo of archivos.sort()) {
     const ruta = join(DIR_CORPUS, archivo);
@@ -159,7 +191,11 @@ async function main() {
       continue;
     }
 
-    const embeddings = await generarEmbeddings(chunks, "document");
+    // Espaciar las peticiones (excepto la primera) para no exceder 3 RPM.
+    if (procesados > 0 && RETARDO_MS > 0) await dormir(RETARDO_MS);
+    procesados++;
+
+    const embeddings = await embeddingsConReintento(chunks);
 
     // Borrar filas previas de esta fuente (idempotente).
     const { error: errorBorrado } = await supabase

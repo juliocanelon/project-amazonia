@@ -1,9 +1,25 @@
 /**
- * Cliente de embeddings de Voyage AI.
+ * lib/embeddings.ts — cliente de embeddings de Voyage AI.
  *
- * Voyage se eligió por su capa gratuita amplia y por ofrecer modelos
- * multilingües (el corpus está en español). Se usa voyage-3.5-lite por
- * defecto (1024 dimensiones). Todas las llamadas ocurren en el servidor.
+ * QUÉ HACE: convierte texto (fragmentos del corpus o consultas del usuario) en
+ * vectores de 1024 dimensiones. Distingue `input_type` "document" (al indexar) y
+ * "query" (al consultar), que Voyage optimiza por separado.
+ *
+ * ROL EN EL SISTEMA: capa de acceso al proveedor de embeddings. Es la frontera
+ * entre el texto y el espacio vectorial; la usan tanto el indexador
+ * (`scripts/indexar-corpus.ts`) como la recuperación (`lib/rag.ts`).
+ *
+ * DECISIÓN DE ARQUITECTURA:
+ *  - Voyage `voyage-3.5-lite`: modelo MULTILINGÜE (el corpus está en español),
+ *    con capa gratuita sin tarjeta y 200M tokens gratuitos.
+ *  - Dimensión 1024 acoplada al esquema `vector(1024)` de Supabase: cambiar de
+ *    modelo obliga a ajustar el esquema y re-indexar (documentado en el README).
+ *  - Aislar el proveedor en un único módulo permite sustituirlo (p. ej. por una
+ *    alternativa local con Transformers.js) tocando solo este archivo.
+ *
+ * PARA EL INFORME: la elección de un modelo multilingüe es deliberada por el
+ * idioma del corpus. Todas las llamadas ocurren en el servidor (nunca en el
+ * cliente), preservando la confidencialidad de la clave.
  */
 
 const VOYAGE_URL = "https://api.voyageai.com/v1/embeddings";

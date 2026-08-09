@@ -1,7 +1,21 @@
 /**
- * Etiqueta discreta que marca el origen de un dato dentro de la interfaz.
- * Es parte del requisito de transparencia de alcance: cada dato que NO es
- * real (RAG) debe declararse como "simulado" o "pre-calculado".
+ * EtiquetaOrigen — sello de procedencia de un dato ("real" / "pre-calculado" /
+ * "simulado").
+ *
+ * QUÉ HACE: renderiza una etiqueta discreta y consistente (color por origen)
+ * que acompaña a los datos en toda la interfaz.
+ *
+ * ROL EN EL SISTEMA: primitiva de UI que hace operativa la "frontera de
+ * honestidad". La reutilizan mapa, panel de alerta, ficha RAG, gráficas y chat,
+ * garantizando un lenguaje visual único para la procedencia.
+ *
+ * DECISIÓN DE ARQUITECTURA: centralizar la semántica del origen en un solo
+ * componente (colores + textos) evita etiquetas inconsistentes y asegura que el
+ * requisito de transparencia se aplique de forma uniforme.
+ *
+ * PARA EL INFORME: es la pieza atómica del principio de transparencia de
+ * alcance —verde = RAG real; azul = detección pre-calculada; ámbar = telemetría
+ * simulada—.
  */
 
 type Origen = "simulado" | "pre-calculado" | "real";

@@ -1,5 +1,20 @@
 /**
- * Tipos compartidos del prototipo Centinela Orinoco.
+ * lib/tipos.ts — contratos de datos compartidos del prototipo.
+ *
+ * QUÉ HACE: define los tipos TypeScript que atraviesan toda la app (alertas,
+ * telemetría, fuentes citadas, respuestas RAG, tipo de fuente…).
+ *
+ * ROL EN EL SISTEMA: fuente única de verdad de las estructuras de datos. Al
+ * compartir estos tipos entre cliente, servidor y scripts, el compilador
+ * garantiza que el GeoJSON, la base vectorial y la UI hablen el mismo lenguaje.
+ *
+ * DECISIÓN DE ARQUITECTURA: tipado estricto de extremo a extremo (sin `any`) para
+ * detectar en compilación cualquier desalineación de esquema —por ejemplo, el
+ * campo `tipo` (resumen_elaborado | prensa) que distingue ciencia de prensa
+ * viaja tipado desde la BD hasta la interfaz—.
+ *
+ * PARA EL INFORME: refleja el modelo de datos del sistema en un solo lugar; es
+ * un buen punto de partida para describir las entidades del prototipo.
  */
 
 export type Severidad = "alta" | "media" | "baja";

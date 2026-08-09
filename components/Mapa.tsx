@@ -1,3 +1,27 @@
+/**
+ * Mapa — visor geoespacial de alertas y estaciones de sensores (MapLibre GL).
+ *
+ * QUÉ HACE: renderiza los polígonos de detección coloreados por severidad
+ * (con selección por feature-state) y los marcadores de las estaciones de
+ * sensores; emite la selección hacia el contenedor (VistaMapa).
+ *
+ * ROL EN EL SISTEMA: componente de presentación del tablero. Se carga con
+ * `dynamic(..., { ssr:false })` desde VistaMapa porque MapLibre necesita
+ * `window` (no puede renderizarse en el servidor).
+ *
+ * DECISIÓN DE ARQUITECTURA:
+ *  - MapLibre GL JS + teselas oscuras de CARTO (derivadas de OpenStreetMap) en
+ *    lugar de Mapbox: evita un token de pago y cumple la restricción de "solo
+ *    servicios con capa gratuita, sin tarjeta".
+ *  - La geometría de los polígonos es esquemática (exagerada para visibilidad);
+ *    la superficie real la porta el atributo `superficie_ha`.
+ *  - Los marcadores de sensores llevan el badge "simulado" en su popup, en línea
+ *    con la frontera de honestidad.
+ *
+ * PARA EL INFORME: representa la visualización de la salida del (hipotético)
+ * modelo de detección satelital. Aquí los polígonos se cargan pre-calculados;
+ * en un despliegue real vendrían del modelo orquestado por Airflow.
+ */
 "use client";
 
 import { useEffect, useRef } from "react";

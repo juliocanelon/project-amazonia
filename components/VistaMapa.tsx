@@ -1,3 +1,27 @@
+/**
+ * VistaMapa — contenedor y orquestador del tablero de alertas.
+ *
+ * QUÉ HACE: carga los datos estáticos (alertas GeoJSON + telemetría JSON),
+ * mantiene el estado de filtros y de la alerta seleccionada, aplica el filtrado
+ * en memoria y reparte los datos a los componentes hijos (Mapa, PanelFiltros,
+ * PanelAlerta).
+ *
+ * ROL EN EL SISTEMA: es el "componente inteligente" (stateful) del tablero; los
+ * hijos son en su mayoría de presentación. Vive en la ruta raíz `/`.
+ *
+ * DECISIÓN DE ARQUITECTURA:
+ *  - Los datos se leen desde `/public/data/*` con fetch, NO desde una API viva:
+ *    las detecciones son PRE-CALCULADAS y la telemetría SIMULADA (el pipeline de
+ *    ingesta/detección queda como diseño, no implementado).
+ *  - El filtrado ocurre en el cliente (useMemo) porque el volumen es pequeño
+ *    (decenas de alertas); evita un backend de consulta innecesario.
+ *  - El estado de selección se centraliza aquí y se pasa hacia abajo, para que
+ *    el mapa y el panel de detalle permanezcan sincronizados.
+ *
+ * PARA EL INFORME: ejemplifica el patrón contenedor/presentación y delimita con
+ * claridad qué datos son demostrativos (los de este tablero) frente a la capa
+ * RAG real que se consulta desde el panel de detalle.
+ */
 "use client";
 
 import { useEffect, useMemo, useState } from "react";

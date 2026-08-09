@@ -1,3 +1,28 @@
+/**
+ * lib/rag.ts — RECUPERACIÓN del pipeline RAG (la "R" de RAG).
+ *
+ * QUÉ HACE: dada una consulta, genera su embedding, llama a la función
+ * `match_fragmentos` de Supabase/pgvector (similitud coseno) y devuelve los
+ * fragmentos más relevantes. Además arma el contexto que se le pasa al LLM y
+ * extrae la lista de fuentes citadas (deduplicadas por fuente).
+ *
+ * ROL EN EL SISTEMA: núcleo de la capa semántica, del lado servidor. Es el
+ * puente entre la base vectorial y la generación (lib/generacion.ts). Lo usan
+ * las dos rutas API (`/api/contexto` y `/api/chat`).
+ *
+ * DECISIÓN DE ARQUITECTURA:
+ *  - La similitud se calcula en la base de datos (pgvector + índice HNSW), no en
+ *    la app: escala mejor y mantiene los datos en un único lugar.
+ *  - `construirContexto` marca cada fragmento como "revisada por pares" o
+ *    "PRENSA — no revisada por pares", de modo que la distinción de fiabilidad
+ *    viaja hasta el prompt del modelo.
+ *  - `extraerFuentes` deduplica por `fuente_id`: un documento citado en varios
+ *    fragmentos aparece una sola vez en la lista de fuentes.
+ *
+ * PARA EL INFORME: implementa la recuperación densa multilingüe. Solo se usa en
+ * el servidor, por lo que las claves nunca se exponen. La calidad de las
+ * respuestas depende directamente de este paso (qué fragmentos se recuperan).
+ */
 import { embeddingConsulta } from "./embeddings";
 import { obtenerSupabaseServidor } from "./supabaseServidor";
 import type { FuenteCitada, TipoFuente } from "./tipos";

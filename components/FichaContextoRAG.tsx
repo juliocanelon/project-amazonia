@@ -13,8 +13,27 @@ interface RespuestaContexto {
 }
 
 /**
- * Ficha de contexto científico de una alerta, construida por el RAG real.
- * Consume /api/contexto (recuperación vectorial + generación con citas).
+ * FichaContextoRAG — contexto científico de una alerta, generado por el RAG real.
+ *
+ * QUÉ HACE: al montarse con una alerta, llama a `/api/contexto` con su id,
+ * recibe una ficha redactada por el LLM anclada en el corpus y la lista de
+ * fuentes citadas, y las muestra con estados de carga/error explícitos.
+ *
+ * ROL EN EL SISTEMA: es la cara visible de la CAPA REAL del prototipo (RAG).
+ * Vive dentro de PanelAlerta y convierte una detección geoespacial en una
+ * explicación fundamentada con evidencia citable.
+ *
+ * DECISIÓN DE ARQUITECTURA:
+ *  - Toda la lógica sensible (embeddings, consulta vectorial, generación) ocurre
+ *    en el servidor (`/api/contexto`); el componente solo consume JSON. Así las
+ *    claves de API nunca llegan al cliente.
+ *  - Degradación elegante: si falta la clave de Anthropic, la API responde con
+ *    los fragmentos recuperados + un aviso, y este componente lo muestra sin
+ *    romperse.
+ *
+ * PARA EL INFORME: demuestra "recuperación + generación con citas verificables"
+ * aplicada a un caso de uso concreto (fundamentar una alerta), que es el
+ * objetivo del prototipo. La etiqueta de origen "real" lo distingue del resto.
  */
 export default function FichaContextoRAG({
   alerta,

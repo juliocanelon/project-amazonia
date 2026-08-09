@@ -10,7 +10,25 @@ import FichaContextoRAG from "./FichaContextoRAG";
 import GraficaTelemetria from "./GraficaTelemetria";
 
 /**
- * Panel lateral de detalle de una alerta seleccionada.
+ * PanelAlerta — panel lateral de detalle de la alerta seleccionada.
+ *
+ * QUÉ HACE: muestra los atributos de la detección (id, severidad, cuenca,
+ * superficie, fecha, origen del sensor) y compone en un mismo lugar tres
+ * bloques: la ficha de contexto RAG (real), las gráficas de telemetría
+ * (simuladas) y la lista de fuentes citadas.
+ *
+ * ROL EN EL SISTEMA: es el punto de encuentro entre las tres naturalezas de
+ * dato del prototipo —pre-calculado (atributos de la alerta), real
+ * (FichaContextoRAG) y simulado (GraficaTelemetria)— cada uno con su etiqueta
+ * de origen.
+ *
+ * DECISIÓN DE ARQUITECTURA: al seleccionar una alerta, la ficha RAG se solicita
+ * bajo demanda (lazy) a `/api/contexto`; no se pre-calcula para todas las
+ * alertas, lo que ahorra llamadas a embeddings y generación.
+ *
+ * PARA EL INFORME: ilustra cómo la capa semántica (RAG) se integra en el flujo
+ * de trabajo del analista —contexto científico con citas verificables junto al
+ * evento geoespacial— que es el aporte central del prototipo.
  */
 export default function PanelAlerta({
   alerta,

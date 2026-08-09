@@ -1,3 +1,28 @@
+/**
+ * ChatRAG — asistente conversacional sobre el corpus (capa RAG real).
+ *
+ * QUÉ HACE: interfaz de chat que envía cada pregunta (con el historial reciente)
+ * a `/api/chat` y muestra la respuesta generada junto con las fuentes citadas.
+ * Ofrece preguntas de ejemplo para orientar al evaluador.
+ *
+ * ROL EN EL SISTEMA: es la vía de consulta libre a la capa semántica, en la ruta
+ * `/asistente`. Complementa a FichaContextoRAG (que ancla el RAG a una alerta):
+ * aquí el usuario formula cualquier consulta sobre el corpus.
+ *
+ * DECISIÓN DE ARQUITECTURA:
+ *  - El historial se envía al servidor en cada turno para dar continuidad
+ *    conversacional; el servidor recorta a los últimos turnos para acotar coste
+ *    y evitar deriva.
+ *  - Estado puramente local (useState): no se persiste la conversación, acorde a
+ *    un prototipo de defensa.
+ *  - Las preguntas de ejemplo están redactadas para caer dentro de la cobertura
+ *    real del corpus (mercurio, radar vs óptico, detección satelital,
+ *    degradación forestal).
+ *
+ * PARA EL INFORME: evidencia el comportamiento anti-alucinación —si el corpus no
+ * cubre algo, el asistente lo declara— y la trazabilidad de cada afirmación a
+ * fuentes reales (autor, año, similitud).
+ */
 "use client";
 
 import { useRef, useState } from "react";

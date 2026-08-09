@@ -1,3 +1,30 @@
+/**
+ * lib/generacion.ts — GENERACIÓN del pipeline RAG (la "G" de RAG).
+ *
+ * QUÉ HACE: recibe los fragmentos recuperados (lib/rag.ts) y el historial, arma
+ * el contexto y pide a la API de Anthropic una respuesta redactada, sujeta a un
+ * system prompt anti-alucinación. Devuelve el texto generado.
+ *
+ * ROL EN EL SISTEMA: segundo paso de la capa semántica, del lado servidor.
+ * Consume lo que produce la recuperación y entrega la respuesta final a las
+ * rutas API.
+ *
+ * DECISIÓN DE ARQUITECTURA:
+ *  - Modelo configurable por `ANTHROPIC_MODEL` (por defecto `claude-sonnet-5`),
+ *    para poder equilibrar coste/calidad en la defensa sin tocar código.
+ *  - DEGRADACIÓN ELEGANTE: si falta `ANTHROPIC_API_KEY`, no se llama al modelo;
+ *    las rutas devuelven los fragmentos recuperados + un aviso. El RAG así sigue
+ *    siendo útil (recuperación con citas) aun sin créditos de generación.
+ *  - El historial se recorta a los últimos turnos para acotar coste y deriva.
+ *  - El SYSTEM_PROMPT (abajo) codifica las reglas del dominio: responder solo con
+ *    el contexto, no inventar, citar por apellido y año, priorizar la evidencia
+ *    arbitrada sobre la prensa, aclarar que las detecciones son pre-calculadas y
+ *    la telemetría simulada, y que NO se mide mercurio en tiempo real.
+ *
+ * PARA EL INFORME: aquí se materializa la mitigación de alucinaciones mediante
+ * "grounding" (el modelo solo puede usar el contexto recuperado) y la política
+ * de citación. El prompt es el control principal de fiabilidad del sistema.
+ */
 import Anthropic from "@anthropic-ai/sdk";
 import { construirContexto, type FragmentoRecuperado } from "./rag";
 

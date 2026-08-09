@@ -13,8 +13,21 @@ export interface EstadoFiltros {
 const SEVERIDADES: Severidad[] = ["alta", "media", "baja"];
 
 /**
- * Barra de filtros: severidad, cuenca y rango de fechas.
- * Los cambios se propagan hacia arriba vía onCambio.
+ * PanelFiltros — barra de filtrado del tablero (severidad, cuenca, fechas).
+ *
+ * QUÉ HACE: expone controles de filtro y muestra el resumen agregado (nº de
+ * alertas y hectáreas visibles). No filtra por sí mismo: emite el estado de
+ * filtros hacia arriba (onCambio) y VistaMapa aplica el filtrado.
+ *
+ * ROL EN EL SISTEMA: componente de presentación "controlado"; el estado vive en
+ * el contenedor (VistaMapa), este solo lo edita.
+ *
+ * DECISIÓN DE ARQUITECTURA: patrón de estado elevado (lifting state up) —un
+ * único origen de verdad para los filtros— de modo que mapa, panel y resumen
+ * reaccionen de forma coherente al mismo estado.
+ *
+ * PARA EL INFORME: la lista de cuencas se deriva dinámicamente de los datos
+ * (Río Cuyuní, Caroní, Yuruari, Venamo), no está codificada a mano.
  */
 export default function PanelFiltros({
   filtros,

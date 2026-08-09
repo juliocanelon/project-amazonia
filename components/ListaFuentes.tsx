@@ -1,9 +1,23 @@
 import type { FuenteCitada } from "@/lib/tipos";
 
 /**
- * Lista de fuentes citadas por el RAG (autor, año, revista/medio) con su grado
- * de similitud vectorial. Distingue visiblemente las fuentes de PRENSA (no
- * arbitradas) de las revisadas por pares.
+ * ListaFuentes — fuentes que el RAG consultó para una respuesta.
+ *
+ * QUÉ HACE: lista cada fuente citada (autor, año, revista/medio) con su grado de
+ * similitud vectorial, distinguiendo visiblemente la PRENSA (no arbitrada) de la
+ * ciencia revisada por pares.
+ *
+ * ROL EN EL SISTEMA: componente de presentación compartido por FichaContextoRAG
+ * y ChatRAG. Es lo que convierte una respuesta generada en una respuesta
+ * VERIFICABLE.
+ *
+ * DECISIÓN DE ARQUITECTURA: mostrar la similitud y el tipo de fuente hace
+ * auditable la recuperación —el evaluador ve de dónde salió cada afirmación y
+ * con qué relevancia—, reforzando la trazabilidad frente a la alucinación.
+ *
+ * PARA EL INFORME: sostiene la afirmación de "citas verificables". La distinción
+ * prensa/arbitrada es coherente con el prompt del sistema, que prioriza la
+ * evidencia revisada por pares.
  */
 export default function ListaFuentes({ fuentes }: { fuentes: FuenteCitada[] }) {
   if (!fuentes?.length) return null;
