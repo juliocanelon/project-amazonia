@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useMemo, useState } from "react";
 import {
   Area,
   Line,
@@ -13,7 +14,7 @@ import {
   ReferenceLine,
   ResponsiveContainer,
 } from "recharts";
-import type { SensorTelemetria } from "@/lib/tipos";
+import type { LecturaTelemetria, SensorTelemetria } from "@/lib/tipos";
 import EtiquetaOrigen from "./EtiquetaOrigen";
 
 /**
@@ -58,6 +59,17 @@ export default function GraficaTelemetria({
   const datos = sensor.lecturas;
   const ejeTicks = ticksMensuales(datos.map((l) => l.fecha));
 
+  // Resúmenes numéricos para alimentar la interpretación con IA (sin enviar
+  // toda la serie). Deterministas por sensor → memorizados.
+  const resumenTurbidez = useMemo(
+    () => resumirSerie(datos, "turbidez_ntu"),
+    [datos]
+  );
+  const resumenConductividad = useMemo(
+    () => resumirSerie(datos, "conductividad_us"),
+    [datos]
+  );
+
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
@@ -80,6 +92,15 @@ export default function GraficaTelemetria({
         <div className="mb-1 text-[11px] font-medium text-texto-secundario">
           Turbidez (NTU)
         </div>
+        <InterpretacionIA
+          sensorId={sensor.id_sensor}
+          cuenca={sensor.cuenca}
+          variable="turbidez"
+          etiqueta="Turbidez"
+          unidad="NTU"
+          resumen={resumenTurbidez}
+          fechaDeteccion={fechaDeteccion}
+        />
         <ResponsiveContainer width="100%" height={140}>
           <ComposedChart data={datos} margin={{ top: 4, right: 8, bottom: 0, left: -8 }}>
             <defs>
@@ -141,6 +162,15 @@ export default function GraficaTelemetria({
             Conductividad (µS/cm)
           </span>
         </div>
+        <InterpretacionIA
+          sensorId={sensor.id_sensor}
+          cuenca={sensor.cuenca}
+          variable="conductividad"
+          etiqueta="Conductividad"
+          unidad="µS/cm"
+          resumen={resumenConductividad}
+          fechaDeteccion={fechaDeteccion}
+        />
         <ResponsiveContainer width="100%" height={120}>
           <LineChart data={datos} margin={{ top: 4, right: 8, bottom: 0, left: -8 }}>
             <CartesianGrid stroke="#1a2432" vertical={false} />
@@ -202,6 +232,210 @@ export default function GraficaTelemetria({
         la minería aluvial; el pH desciende y la conductividad aumenta.
       </p>
     </div>
+  );
+}
+
+// ── Interpretación con IA ───────────────────────────────────────
+
+type CampoNumerico = "turbidez_ntu" | "conductividad_us";
+
+interface ResumenSerie {
+  min: number;
+  max: number;
+  prom: number;
+  pico: number;
+  fechaPico: string;
+  baseline: number;
+}
+
+function redondear(n: number): number {
+  return Math.round(n * 10) / 10;
+}
+
+/** Resume una serie (min/max/promedio/pico/línea base) para pasarla al LLM. */
+function resumirSerie(
+  lecturas: LecturaTelemetria[],
+  campo: CampoNumerico
+): ResumenSerie | null {
+  if (!lecturas.length) return null;
+  let min = Infinity;
+  let max = -Infinity;
+  let suma = 0;
+  let fechaPico = lecturas[0].fecha;
+  for (const l of lecturas) {
+    const v = l[campo];
+    if (v < min) min = v;
+    if (v > max) {
+      max = v;
+      fechaPico = l.fecha;
+    }
+    suma += v;
+  }
+  // Línea base: promedio del primer 20 % de lecturas (antes del disturbio).
+  const nBase = Math.max(1, Math.floor(lecturas.length * 0.2));
+  const base =
+    lecturas.slice(0, nBase).reduce((s, l) => s + l[campo], 0) / nBase;
+  return {
+    min: redondear(min),
+    max: redondear(max),
+    prom: redondear(suma / lecturas.length),
+    pico: redondear(max),
+    fechaPico,
+    baseline: redondear(base),
+  };
+}
+
+// Caché de cliente: `${sensorId}:${variable}` → interpretación ya inferida.
+const cacheInterpretacionCliente = new Map<string, string>();
+// Duración mínima visible de la "inferencia" (para que la carga desde caché
+// también muestre la animación, como pidió el requisito).
+const MIN_INFER_MS = 1100;
+
+/**
+ * Bloque de interpretación con IA que precede a una gráfica. Explica qué mide la
+ * variable y qué muestra la serie. Cachea por sensor+variable (dos capas:
+ * cliente aquí y servidor en /api/interpretacion). Si sirve desde caché,
+ * SIMULA la inferencia mostrando la animación de carga un instante.
+ */
+function InterpretacionIA({
+  sensorId,
+  cuenca,
+  variable,
+  etiqueta,
+  unidad,
+  resumen,
+  fechaDeteccion,
+}: {
+  sensorId: string;
+  cuenca: string;
+  variable: "turbidez" | "conductividad";
+  etiqueta: string;
+  unidad: string;
+  resumen: ResumenSerie | null;
+  fechaDeteccion: string;
+}) {
+  const [estado, setEstado] = useState<"cargando" | "listo" | "error">("cargando");
+  const [texto, setTexto] = useState("");
+  const [deCache, setDeCache] = useState(false);
+  const [sinIA, setSinIA] = useState(false);
+
+  useEffect(() => {
+    if (!resumen) {
+      setEstado("error");
+      setTexto("Sin datos suficientes para interpretar la serie.");
+      return;
+    }
+    let cancel = false;
+    setEstado("cargando");
+    const clave = `${sensorId}:${variable}`;
+    const inicio = Date.now();
+
+    // Muestra el resultado respetando una duración mínima de "inferencia".
+    const terminar = (t: string, cache: boolean, sin: boolean) => {
+      const restante = Math.max(0, MIN_INFER_MS - (Date.now() - inicio));
+      window.setTimeout(() => {
+        if (cancel) return;
+        setTexto(t);
+        setDeCache(cache);
+        setSinIA(sin);
+        setEstado("listo");
+      }, restante);
+    };
+
+    const enCache = cacheInterpretacionCliente.get(clave);
+    if (enCache) {
+      terminar(enCache, true, false); // desde caché: se simula la inferencia
+      return () => {
+        cancel = true;
+      };
+    }
+
+    fetch("/api/interpretacion", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sensorId,
+        variable,
+        etiqueta,
+        unidad,
+        cuenca,
+        resumen,
+        fechaDeteccion,
+      }),
+    })
+      .then(async (res) => {
+        const json = await res.json();
+        if (!res.ok) throw new Error(json?.error || `Error ${res.status}`);
+        return json as { interpretacion: string; generacion_deshabilitada?: boolean };
+      })
+      .then((json) => {
+        cacheInterpretacionCliente.set(clave, json.interpretacion);
+        terminar(json.interpretacion, false, !!json.generacion_deshabilitada);
+      })
+      .catch((e) => {
+        if (!cancel) {
+          setEstado("error");
+          setTexto(e instanceof Error ? e.message : "Error al interpretar la serie");
+        }
+      });
+
+    return () => {
+      cancel = true;
+    };
+  }, [sensorId, variable, etiqueta, unidad, cuenca, resumen, fechaDeteccion]);
+
+  return (
+    <div className="mb-2 rounded-md border border-acento/20 bg-acento/[0.06] px-2.5 py-2">
+      <div className="mb-1 flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wide text-acento">
+        <IconoIA />
+        Interpretación IA
+        {estado === "listo" && deCache && (
+          <span className="rounded bg-base-700 px-1 text-[9px] font-normal normal-case text-texto-tenue">
+            caché
+          </span>
+        )}
+      </div>
+
+      {estado === "cargando" && (
+        <div
+          className="flex items-center gap-2 text-[11px] text-texto-tenue"
+          role="status"
+          aria-live="polite"
+        >
+          <span className="h-3.5 w-3.5 shrink-0 animate-spin rounded-full border-2 border-base-600 border-t-acento" />
+          <span>Infiriendo la interpretación de los datos con IA…</span>
+        </div>
+      )}
+
+      {estado === "error" && (
+        <p className="text-[11px] text-severidad-alta">{texto}</p>
+      )}
+
+      {estado === "listo" && (
+        <>
+          {sinIA && (
+            <p className="mb-1 text-[10px] text-amber-300/80">
+              Interpretación de reserva (sin IA): falta la clave de Anthropic.
+            </p>
+          )}
+          <p className="text-[12px] leading-relaxed text-texto-secundario">
+            {texto}
+          </p>
+        </>
+      )}
+    </div>
+  );
+}
+
+/** Estrella de cuatro puntas: marca de "generado por IA". */
+function IconoIA() {
+  return (
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M12 3l1.7 4.6 4.6 1.7-4.6 1.7L12 15.6l-1.7-4.6L5.7 9.3l4.6-1.7L12 3Z"
+        fill="currentColor"
+      />
+    </svg>
   );
 }
 
