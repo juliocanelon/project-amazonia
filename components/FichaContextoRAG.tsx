@@ -57,7 +57,9 @@ export default function FichaContextoRAG({
         const res = await fetch("/api/contexto", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ alertaId: alerta.id }),
+          // Se envía la alerta completa para que la ruta no tenga que hacerse un
+          // fetch a sí misma (frágil en Vercel con Deployment Protection).
+          body: JSON.stringify({ alertaId: alerta.id, alerta }),
         });
         const json = await res.json();
         if (!res.ok) throw new Error(json?.error || `Error ${res.status}`);

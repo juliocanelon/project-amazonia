@@ -12,9 +12,10 @@
  * DECISIÓN DE ARQUITECTURA:
  *  - `runtime = "nodejs"` (no Edge): los SDK de Anthropic y Supabase requieren
  *    APIs de Node.
- *  - El GeoJSON se lee por HTTP desde el `origin` de la petición, no del sistema
- *    de archivos, para funcionar de forma robusta en el entorno serverless de
- *    Vercel.
+ *  - Los datos de la alerta los envía el CLIENTE en el cuerpo (ya los tiene en el
+ *    mapa). Esto evita que la ruta se haga un fetch a sí misma —que en Vercel con
+ *    Deployment Protection devuelve HTML en vez del GeoJSON—. Como respaldo, si
+ *    el cliente no envía la alerta, se lee el GeoJSON del propio origen.
  *  - Toda la lógica sensible vive aquí (servidor); el cliente solo consume JSON.
  *  - CACHÉ POR ALERTA (H2·A): las alertas son estáticas y deterministas, así que
  *    la ficha de cada `alertaId` se calcula una sola vez y se reutiliza. Esto
@@ -30,7 +31,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { recuperarFragmentos, extraerFuentes } from "@/lib/rag";
 import { generarRespuestaRAG } from "@/lib/generacion";
-import type { ColeccionAlertas } from "@/lib/tipos";
+import type { ColeccionAlertas, PropiedadesAlerta } from "@/lib/tipos";
 
 // Ejecutar en Node.js (el SDK de Anthropic y Supabase requieren APIs de Node).
 export const runtime = "nodejs";
@@ -42,7 +43,10 @@ const cacheFichas = new Map<string, unknown>();
 
 export async function POST(req: NextRequest) {
   try {
-    const { alertaId } = await req.json();
+    const { alertaId, alerta: alertaCliente } = (await req.json()) as {
+      alertaId?: string;
+      alerta?: PropiedadesAlerta;
+    };
 
     if (typeof alertaId !== "string" || !alertaId.trim()) {
       return NextResponse.json(
@@ -55,21 +59,28 @@ export async function POST(req: NextRequest) {
     const cacheada = cacheFichas.get(alertaId);
     if (cacheada) return NextResponse.json(cacheada);
 
-    // Cargar el GeoJSON estático desde el propio despliegue y localizar la alerta.
-    const resGeo = await fetch(`${req.nextUrl.origin}/data/alertas.geojson`, {
-      cache: "no-store",
-    });
-    if (!resGeo.ok) throw new Error("No se pudo cargar alertas.geojson");
-    const coleccion = (await resGeo.json()) as ColeccionAlertas;
-    const feature = coleccion.features.find((f) => f.properties.id === alertaId);
-
-    if (!feature) {
-      return NextResponse.json(
-        { error: `No se encontró la alerta '${alertaId}'.` },
-        { status: 404 }
+    // Preferir los datos de la alerta enviados por el cliente (evita el
+    // auto-fetch del GeoJSON). Respaldo: leerlos del origen si no vienen.
+    let alerta: PropiedadesAlerta;
+    if (alertaCliente && typeof alertaCliente.cuenca === "string") {
+      alerta = alertaCliente;
+    } else {
+      const resGeo = await fetch(`${req.nextUrl.origin}/data/alertas.geojson`, {
+        cache: "no-store",
+      });
+      if (!resGeo.ok) throw new Error("No se pudo cargar alertas.geojson");
+      const coleccion = (await resGeo.json()) as ColeccionAlertas;
+      const feature = coleccion.features.find(
+        (f) => f.properties.id === alertaId
       );
+      if (!feature) {
+        return NextResponse.json(
+          { error: `No se encontró la alerta '${alertaId}'.` },
+          { status: 404 }
+        );
+      }
+      alerta = feature.properties;
     }
-    const alerta = feature.properties;
 
     // Consulta para la recuperación vectorial (orientada a la cuenca e impactos/técnicas).
     const consulta =
