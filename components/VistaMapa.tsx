@@ -139,7 +139,7 @@ export default function VistaMapa() {
   }
 
   return (
-    <div className="flex h-[calc(100vh-96px)] flex-col">
+    <div className="flex min-h-0 flex-1 flex-col">
       <PanelFiltros
         filtros={filtros}
         cuencasDisponibles={cuencasDisponibles}
@@ -147,7 +147,7 @@ export default function VistaMapa() {
         totalAlertas={alertasFiltradas.features.length}
         totalHectareas={totalHectareas}
       />
-      <div className="flex min-h-0 flex-1">
+      <div className="relative flex min-h-0 flex-1">
         <div className="relative min-w-0 flex-1">
           {alertas ? (
             <Mapa
@@ -163,11 +163,14 @@ export default function VistaMapa() {
           )}
         </div>
         {featureSeleccionada && (
-          <PanelAlerta
-            alerta={featureSeleccionada.properties}
-            sensor={sensorSeleccionado}
-            onCerrar={() => setSeleccionada(null)}
-          />
+          // En móvil el panel se superpone al mapa (capa); en escritorio va al lado.
+          <div className="absolute inset-0 z-20 md:static md:z-auto">
+            <PanelAlerta
+              alerta={featureSeleccionada.properties}
+              sensor={sensorSeleccionado}
+              onCerrar={() => setSeleccionada(null)}
+            />
+          </div>
         )}
       </div>
     </div>

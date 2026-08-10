@@ -4,10 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const NAV = [
-  { href: "/", etiqueta: "Mapa de alertas" },
-  { href: "/asistente", etiqueta: "Asistente RAG" },
-  { href: "/arquitectura", etiqueta: "Arquitectura" },
-  { href: "/acerca", etiqueta: "Acerca del prototipo" },
+  { href: "/", etiqueta: "Mapa de alertas", corta: "Mapa" },
+  { href: "/asistente", etiqueta: "Asistente RAG", corta: "Asistente" },
+  { href: "/arquitectura", etiqueta: "Arquitectura", corta: "Arquitectura" },
+  { href: "/acerca", etiqueta: "Acerca del prototipo", corta: "Acerca" },
 ];
 
 /**
@@ -33,11 +33,14 @@ const NAV = [
 export default function Cabecera() {
   const pathname = usePathname();
 
+  // El portal de acceso se muestra a pantalla completa, sin cabecera ni banner.
+  if (pathname === "/acceso") return null;
+
   return (
     <header className="sticky top-0 z-30 border-b border-base-700 bg-base-900/95 backdrop-blur">
-      <div className="flex items-center justify-between gap-4 px-4 py-2.5">
-        <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded bg-acento/15 text-acento">
+      <div className="flex items-center justify-between gap-2 px-3 py-2 sm:gap-4 sm:px-4 sm:py-2.5">
+        <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded bg-acento/15 text-acento">
             {/* Marca simple: un "ojo" centinela */}
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
               <path
@@ -48,15 +51,19 @@ export default function Cabecera() {
               <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.8" />
             </svg>
           </div>
-          <div>
-            <div className="text-sm font-semibold leading-tight">Centinela Orinoco</div>
-            <div className="text-[11px] leading-tight text-texto-tenue">
+          <div className="min-w-0">
+            <div className="truncate text-sm font-semibold leading-tight">
+              Centinela Orinoco
+            </div>
+            {/* Subtítulo oculto en móvil para ganar espacio. */}
+            <div className="hidden truncate text-[11px] leading-tight text-texto-tenue sm:block">
               Monitoreo de minería ilegal · Arco Minero del Orinoco
             </div>
           </div>
         </div>
 
-        <nav className="flex items-center gap-1 text-sm">
+        {/* Nav deslizable en horizontal si no cabe (móvil). */}
+        <nav className="-mx-1 flex items-center gap-1 overflow-x-auto px-1 text-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {NAV.map((item) => {
             const activo =
               item.href === "/"
@@ -66,13 +73,15 @@ export default function Cabecera() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded px-3 py-1.5 transition-colors ${
+                className={`shrink-0 whitespace-nowrap rounded px-2.5 py-1.5 transition-colors sm:px-3 ${
                   activo
                     ? "bg-base-700 text-texto-primario"
                     : "text-texto-secundario hover:bg-base-800 hover:text-texto-primario"
                 }`}
               >
-                {item.etiqueta}
+                {/* Etiqueta corta en móvil, completa desde sm. */}
+                <span className="sm:hidden">{item.corta}</span>
+                <span className="hidden sm:inline">{item.etiqueta}</span>
               </Link>
             );
           })}

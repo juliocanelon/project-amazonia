@@ -35,9 +35,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={inter.variable}>
-      <body className="flex min-h-screen flex-col">
+      <body className="flex min-h-[100dvh] flex-col">
         <Cabecera />
-        <main className="flex-1">{children}</main>
+        <main className="flex min-h-0 flex-1 flex-col">{children}</main>
       </body>
     </html>
   );

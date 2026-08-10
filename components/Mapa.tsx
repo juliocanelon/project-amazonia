@@ -24,7 +24,7 @@
  */
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import type { ColeccionAlertas, SensorTelemetria } from "@/lib/tipos";
@@ -249,30 +249,57 @@ function aplicarSeleccion(mapa: maplibregl.Map, id: string | null) {
 }
 
 function Leyenda() {
+  const [abierta, setAbierta] = useState(true);
   return (
-    <div className="absolute bottom-6 right-3 z-10 rounded-md border border-base-600 bg-base-800/90 px-3 py-2 text-[12px] backdrop-blur">
-      <div className="mb-1.5 font-semibold text-texto-primario">Severidad</div>
-      <ul className="space-y-1">
-        {(["alta", "media", "baja"] as const).map((s) => (
-          <li key={s} className="flex items-center gap-2 text-texto-secundario">
-            <span
-              className="inline-block h-3 w-3 rounded-sm"
-              style={{ backgroundColor: COLOR_SEVERIDAD[s] }}
-            />
-            {ETIQUETA_SEVERIDAD[s]}
-          </li>
-        ))}
-        <li className="mt-1.5 flex items-center gap-2 border-t border-base-700 pt-1.5 text-texto-secundario">
-          <span
-            className="inline-block h-2.5 w-2.5 border border-base-900"
-            style={{ backgroundColor: "#38bdf8", transform: "rotate(45deg)", boxShadow: "0 0 0 1.5px #38bdf8" }}
+    <div className="absolute bottom-6 right-3 z-10 rounded-md border border-base-600 bg-base-800/90 text-[12px] backdrop-blur">
+      {/* Cabecera clicable: colapsa/expande la leyenda. */}
+      <button
+        onClick={() => setAbierta((o) => !o)}
+        aria-expanded={abierta}
+        className="flex w-full items-center justify-between gap-3 px-3 py-1.5 font-semibold text-texto-primario"
+      >
+        <span>Leyenda</span>
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden
+          className={`text-texto-tenue transition-transform ${abierta ? "" : "rotate-180"}`}
+        >
+          <path
+            d="m6 15 6-6 6 6"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
-          Estación de sensor
-          <span className="rounded bg-amber-500/15 px-1 text-[10px] uppercase text-amber-300">
-            sim.
-          </span>
-        </li>
-      </ul>
+        </svg>
+      </button>
+
+      {abierta && (
+        <ul className="space-y-1 px-3 pb-2">
+          {(["alta", "media", "baja"] as const).map((s) => (
+            <li key={s} className="flex items-center gap-2 text-texto-secundario">
+              <span
+                className="inline-block h-3 w-3 rounded-sm"
+                style={{ backgroundColor: COLOR_SEVERIDAD[s] }}
+              />
+              {ETIQUETA_SEVERIDAD[s]}
+            </li>
+          ))}
+          <li className="mt-1.5 flex items-center gap-2 border-t border-base-700 pt-1.5 text-texto-secundario">
+            <span
+              className="inline-block h-2.5 w-2.5 border border-base-900"
+              style={{ backgroundColor: "#38bdf8", transform: "rotate(45deg)", boxShadow: "0 0 0 1.5px #38bdf8" }}
+            />
+            Estación de sensor
+            <span className="rounded bg-amber-500/15 px-1 text-[10px] uppercase text-amber-300">
+              sim.
+            </span>
+          </li>
+        </ul>
+      )}
     </div>
   );
 }

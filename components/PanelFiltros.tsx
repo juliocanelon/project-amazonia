@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import type { Severidad } from "@/lib/tipos";
 import { COLOR_SEVERIDAD, ETIQUETA_SEVERIDAD } from "@/lib/severidad";
 
@@ -65,23 +66,21 @@ export default function PanelFiltros({
   const hayFiltros =
     filtros.severidades.length > 0 ||
     filtros.cuencas.length > 0 ||
-    filtros.fechaDesde ||
-    filtros.fechaHasta;
+    Boolean(filtros.fechaDesde) ||
+    Boolean(filtros.fechaHasta);
 
-  return (
-    <div className="flex flex-wrap items-end gap-x-6 gap-y-3 border-b border-base-700 bg-base-800/50 px-4 py-3">
-      {/* Contadores */}
-      <div className="flex items-center gap-4">
-        <Contador valor={totalAlertas} etiqueta="alertas activas" />
-        <Contador
-          valor={totalHectareas.toLocaleString("es", { maximumFractionDigits: 1 })}
-          etiqueta="ha afectadas"
-          acento
-        />
-      </div>
+  const nActivos =
+    filtros.severidades.length +
+    filtros.cuencas.length +
+    (filtros.fechaDesde ? 1 : 0) +
+    (filtros.fechaHasta ? 1 : 0);
 
-      <div className="h-8 w-px bg-base-700" />
+  // Estado de despliegue de los filtros en móvil (en escritorio siempre visibles).
+  const [abierto, setAbierto] = useState(false);
 
+  // Grupos de filtros, reutilizados en escritorio (fila) y móvil (colapsable).
+  const grupos = (
+    <>
       {/* Severidad */}
       <Grupo etiqueta="Severidad">
         <div className="flex gap-1.5">
@@ -154,10 +153,73 @@ export default function PanelFiltros({
           onClick={() =>
             onCambio({ severidades: [], cuencas: [], fechaDesde: "", fechaHasta: "" })
           }
-          className="text-[12px] text-texto-tenue underline-offset-2 hover:text-texto-primario hover:underline"
+          className="self-center text-[12px] text-texto-tenue underline-offset-2 hover:text-texto-primario hover:underline"
         >
           Limpiar filtros
         </button>
+      )}
+    </>
+  );
+
+  return (
+    <div className="border-b border-base-700 bg-base-800/50 px-3 py-2.5 sm:px-4 sm:py-3">
+      {/* Fila principal: contadores + (escritorio) grupos / (móvil) botón. */}
+      <div className="flex flex-wrap items-end gap-x-4 gap-y-2.5 sm:gap-x-6 sm:gap-y-3">
+        <div className="flex items-center gap-4">
+          <Contador valor={totalAlertas} etiqueta="alertas activas" />
+          <Contador
+            valor={totalHectareas.toLocaleString("es", { maximumFractionDigits: 1 })}
+            etiqueta="ha afectadas"
+            acento
+          />
+        </div>
+
+        <div className="hidden h-8 w-px bg-base-700 sm:block" />
+
+        {/* Botón para desplegar filtros (solo móvil). */}
+        <button
+          onClick={() => setAbierto((o) => !o)}
+          aria-expanded={abierto}
+          className="ml-auto flex items-center gap-1.5 self-center rounded border border-base-700 px-2.5 py-1.5 text-[12px] text-texto-secundario sm:hidden"
+        >
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <path
+              d="M3 5h18l-7 8v6l-4-2v-4L3 5Z"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinejoin="round"
+            />
+          </svg>
+          Filtros{nActivos > 0 ? ` (${nActivos})` : ""}
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden
+            className={`transition-transform ${abierto ? "rotate-180" : ""}`}
+          >
+            <path
+              d="m6 9 6 6 6-6"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+
+        {/* Grupos en línea (solo escritorio). */}
+        <div className="hidden flex-wrap items-end gap-x-6 gap-y-3 sm:flex">
+          {grupos}
+        </div>
+      </div>
+
+      {/* Grupos colapsables (solo móvil). */}
+      {abierto && (
+        <div className="mt-2.5 flex flex-wrap items-end gap-x-4 gap-y-2.5 sm:hidden">
+          {grupos}
+        </div>
       )}
     </div>
   );
