@@ -58,21 +58,34 @@ deshabilitada.
 ## 📂 Estructura del proyecto
 
 ```
+middleware.ts                  → control de acceso por PIN (protege toda la app)
 app/
-  (dashboard)  page.tsx        → mapa + filtros + panel de detalle
-  asistente/   page.tsx        → chat conversacional RAG
-  acerca/      page.tsx        → transparencia de alcance
-  api/rag/contexto/route.ts    → ficha RAG por alerta (servidor)
-  api/rag/chat/route.ts        → chat RAG (servidor)
-components/                    → Mapa, PanelAlerta, GraficaTelemetria, ChatRAG, Cabecera…
-lib/                           → tipos, embeddings (Voyage), supabaseServidor, rag, generacion
+  page.tsx                     → tablero: mapa + filtros + panel de detalle
+  asistente/    page.tsx       → chat conversacional RAG
+  arquitectura/ page.tsx       → diagrama animado e interactivo del sistema
+  acerca/       page.tsx       → transparencia de alcance
+  acceso/       page.tsx       → portal de entrada (PIN)
+  api/contexto/route.ts        → ficha RAG por alerta (servidor)
+  api/chat/route.ts            → chat RAG (servidor)
+  api/interpretacion/route.ts  → interpretación IA de la telemetría (servidor)
+  api/acceso/route.ts          → validación del PIN y cookie de sesión (servidor)
+components/                    → Mapa, PanelAlerta, GraficaTelemetria, ChatRAG, FichaContextoRAG,
+                                 ListaFuentes, PanelFiltros, VistaMapa, DiagramaArquitectura,
+                                 FormAcceso, EtiquetaOrigen, Cabecera
+lib/                           → tipos, embeddings (Voyage), supabaseServidor, rag, generacion,
+                                 severidad, acceso (hash del PIN)
 corpus/                        → 24 resúmenes .md con front-matter bibliográfico (14 ciencia + 10 prensa)
 scripts/
   generar-datos.ts             → genera alertas.geojson y telemetria.json
   indexar-corpus.ts            → chunking + embeddings + upsert a Supabase (re-ejecutable)
-supabase/schema.sql            → tabla documentos + pgvector + función match_documentos
+supabase/schema.sql            → tabla fragmentos_corpus + pgvector + función match_fragmentos
 public/data/                   → alertas.geojson, telemetria.json (generados)
+docs/                          → ESPECIFICACION, referencias.json, qa-informe, guia-informe
 ```
+
+> Cada archivo de `components/`, `lib/`, `app/` y `scripts/` lleva una **cabecera
+> de documentación** (qué hace · rol en el sistema · decisión de arquitectura ·
+> nota para el informe). Es una buena fuente primaria al redactar el informe.
 
 ---
 
@@ -107,13 +120,15 @@ cp .env.example .env.local
 | `VOYAGE_MODEL` | Modelo de embeddings (por defecto `voyage-3.5-lite`). |
 | `ANTHROPIC_API_KEY` | Clave de Anthropic (opcional; sin ella se degrada con elegancia). |
 | `ANTHROPIC_MODEL` | Modelo de generación (por defecto `claude-sonnet-5`). Alternativas: `claude-haiku-4-5` (más económico), `claude-opus-5` (máxima calidad). |
+| `PIN_ENTRADA` | **Obligatoria.** PIN del portal de acceso (`/acceso`). Sin ella nadie puede entrar. Solo se usa en el servidor. |
 
 ### 4. Preparar la base vectorial (Supabase)
 
 1. En el panel de Supabase, abre **SQL Editor**.
 2. Pega y ejecuta el contenido de [supabase/schema.sql](supabase/schema.sql).
-   Esto crea la extensión `vector`, la tabla `documentos` y la función
-   `match_documentos`.
+   Esto crea la extensión `vector`, la tabla `fragmentos_corpus` (con índice
+   HNSW) y la función `match_fragmentos`. Al aparecer el aviso de RLS, elige
+   **"Run and enable RLS"**.
 
 ### 5. Generar los datos demostrativos (opcional)
 
@@ -212,9 +227,16 @@ reescribe `lib/embeddings.ts`), actualiza la dimensión del vector en
    detecta automáticamente).
 3. En **Settings → Environment Variables**, añade las mismas variables de
    `.env.local` (`NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`,
-   `VOYAGE_API_KEY`, `VOYAGE_MODEL`, `ANTHROPIC_API_KEY`, `ANTHROPIC_MODEL`).
+   `VOYAGE_API_KEY`, `VOYAGE_MODEL`, `ANTHROPIC_API_KEY`, `ANTHROPIC_MODEL` y
+   **`PIN_ENTRADA`**). Sin `PIN_ENTRADA` el portal de acceso bloquea todo y
+   nadie —tampoco tú— puede entrar.
 4. Despliega. Las API routes de RAG corren como funciones serverless (runtime
-   Node.js).
+   Node.js) y el `middleware.ts` (acceso por PIN) en el Edge.
+
+> **Deployment Protection de Vercel:** si la activas (contraseña de Vercel),
+> el propio portal de acceso por PIN queda por detrás de ella. No es necesaria,
+> porque el PIN ya restringe el acceso; actívala solo si además quieres ocultar
+> el proyecto del público.
 
 > La indexación del corpus (`npm run indexar-corpus`) se ejecuta **una vez en
 > local** (o en cualquier máquina con las variables configuradas), no en Vercel:
@@ -246,6 +268,8 @@ incidencias técnicas encontradas con su resolución.
 6. **Verificación**: pruebas de conectividad de cada servicio y prueba
    extremo-a-extremo del circuito RAG.
 7. **Publicación**: commit inicial y `git push` a GitHub; despliegue en Vercel.
+8. **Iteración posterior**: interpretación IA de la telemetría, página de
+   arquitectura, responsividad móvil y portal de acceso por PIN (ver abajo).
 
 ### Decisiones de diseño
 
@@ -257,6 +281,10 @@ incidencias técnicas encontradas con su resolución.
 | **Generación: `claude-sonnet-5` con degradación elegante** | Si falta `ANTHROPIC_API_KEY`, la app no se rompe: muestra los fragmentos recuperados con sus citas y un aviso. Esto permite operar el RAG (recuperación) aun sin créditos de generación. |
 | **RLS activado en Supabase** | La app accede **solo desde el servidor** con la `service_role` key (que ignora RLS). Activar Row Level Security sin políticas bloquea el acceso anónimo público sin afectar la app. |
 | **Anti-alucinación en el prompt del sistema** | El asistente responde **exclusivamente** con los fragmentos recuperados, cita autor+año, distingue prensa de ciencia y declara explícitamente cuando el corpus no cubre la pregunta. |
+| **Interpretación IA de la telemetría** (feature adicional) | Antes de cada gráfica (turbidez y conductividad), el LLM explica qué mide la variable, por qué es proxy de minería y qué muestra la serie, con caché en dos capas (servidor + cliente) y salvaguardas de honestidad (declara datos simulados, no inventa cifras, aclara que no mide mercurio). |
+| **Página `/arquitectura` interactiva** | Diagrama SVG animado (partículas por las conexiones) con bloques clicables, para explicar las 5 capas y el camino real implementado. Refuerza la frontera de honestidad con color por estado (real/pre-calculado/simulado/diseño). |
+| **Portal de acceso por PIN** | Un `middleware.ts` protege toda la app y las APIs; sin cookie de sesión válida se redirige a `/acceso`. El PIN vive solo en `PIN_ENTRADA` (servidor); la cookie httpOnly guarda su **hash**, nunca el PIN. Evita además que se consuman créditos del RAG sin autorización. |
+| **Responsividad móvil** | Altura del tablero flexible (deja de depender del alto fijo de la cabecera; usa `dvh`), filtros y leyenda colapsables, panel de detalle superpuesto sobre el mapa y cabecera con etiquetas cortas. |
 
 ### Incidencias encontradas y su resolución
 
@@ -268,6 +296,10 @@ incidencias técnicas encontradas con su resolución.
 | **Clave de Voyage con prefijo duplicado** (`pa-pa-…`) | Al pegar la clave sobre el ejemplo de la plantilla quedó el prefijo `pa-` repetido. | Se detectó con una **validación de formato** y una **prueba de conexión en vivo**; corregida, la prueba devolvió un embedding de 1024 dimensiones. |
 | **Valores `null` del front-matter guardados como texto `"null"`** | El parser mínimo de front-matter no distinguía el literal `null`. | Se normalizó en el indexador: `fecha`, `url` e `indexacion` con valor `"null"` se guardan como `NULL` real. |
 | **Vulnerabilidad de seguridad en Next.js 14.2.15** | Versión con CVE conocido. | Actualización a **`next@^14.2.35`**. |
+| **En Vercel, la ficha de contexto fallaba** con `Unexpected token '<'` | La ruta `/api/contexto` se hacía un `fetch` a sí misma para leer el GeoJSON; con Deployment Protection, ese fetch servidor-a-servidor recibía la página HTML de login en vez del JSON. | El cliente ahora **envía la alerta completa** en el cuerpo de la petición; la ruta ya no necesita auto-consultarse (el `fetch` del GeoJSON queda solo como respaldo). |
+| **En móvil la barra de filtros ocupaba toda la pantalla** | La barra horizontal de escritorio se apilaba en muchas filas y dejaba el mapa diminuto. | Filtros **colapsables** en móvil (contadores + botón "Filtros"); en escritorio se mantiene la barra en línea. |
+| **Errores por límite de Voyage al abrir varias alertas** (429) | Cada clic en una alerta pedía un embedding; varias seguidas superaban las 3 req/min. | **Caché por alerta** en `/api/contexto` (reabrir no recomputa) + **reintento** con espera ante 429 en la recuperación. |
+| **Discrepancia de conteo del corpus** (12 vs 14) detectada en QA | Texto codificado a mano en el asistente no actualizado tras ampliar el corpus. | Corregido a "24 fuentes (14 científicas + 10 de prensa)", coherente con `/acerca`. |
 
 ### Reproducibilidad (resumen paso a paso)
 
@@ -276,7 +308,7 @@ incidencias técnicas encontradas con su resolución.
 npm install
 
 # 2. Variables de entorno (ver .env.example para el formato de cada valor)
-cp .env.example .env.local   # y rellenar Supabase, Voyage y (opcional) Anthropic
+cp .env.example .env.local   # rellenar Supabase, Voyage, Anthropic (opcional) y PIN_ENTRADA
 
 # 3. En Supabase → SQL Editor: ejecutar supabase/schema.sql completo
 #    (al aparecer el aviso de RLS, elegir "Run and enable RLS")

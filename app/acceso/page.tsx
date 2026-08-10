@@ -13,7 +13,7 @@ export const metadata = {
 };
 
 // TODO: completar con los nombres reales de todos los integrantes del equipo.
-const INTEGRANTES = ["Miguel Mota","Julio César Canelón"];
+const INTEGRANTES = ["Miguel Mota", "José Escalante", "Julio César Canelón"];
 
 export default function PaginaAcceso() {
   return (

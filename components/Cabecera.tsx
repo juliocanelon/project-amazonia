@@ -13,8 +13,9 @@ const NAV = [
 /**
  * Cabecera — navegación global + banner permanente de transparencia.
  *
- * QUÉ HACE: barra superior fija con las tres rutas del prototipo (mapa,
- * asistente RAG, acerca) y un banner que declara el alcance real del sistema.
+ * QUÉ HACE: barra superior fija con las rutas del prototipo (mapa, asistente
+ * RAG, arquitectura, acerca) y un banner que declara el alcance real del
+ * sistema. Se oculta en el portal de acceso (`/acceso`).
  *
  * ROL EN EL SISTEMA: capa de presentación transversal. Se monta una sola vez en
  * `app/layout.tsx`, por lo que el banner acompaña a TODAS las vistas.
