@@ -6,6 +6,19 @@
   color-scheme: dark;
 }
 
+/* Brillo desplazándose (shimmer) para los esqueletos de carga. */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
+}
+.animate-shimmer {
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
 html,
 body {
   height: 100%;
@@ -31,20 +44,46 @@ body {
   background: theme("colors.base.600");
 }
 
-/* Marcador de estación de sensor (telemetría simulada): rombo cian */
+/* Marcador de estación de sensor (telemetría simulada): rombo cian.
+   MapLibre aplica su propio `transform: translate(...)` al elemento del
+   marcador, lo que anularía un `transform: rotate(...)` puesto aquí. Por eso el
+   rombo se dibuja en un elemento INTERNO, que MapLibre no toca, y así coincide
+   con el rombo de la leyenda. */
 .marcador-sensor {
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+.marcador-sensor__rombo {
+  width: 11px;
+  height: 11px;
+  margin: 2.5px;
   background: #38bdf8;
   border: 1.5px solid #0b1017;
   box-shadow: 0 0 0 1.5px #38bdf8;
   transform: rotate(45deg);
-  cursor: pointer;
 }
 
-/* Ajustes de MapLibre para integrarse con el tema oscuro */
+/* Ajustes de MapLibre para integrarse con el tema oscuro.
+   Se usa !important porque maplibre-gl.css (fondo blanco) se carga después que
+   este archivo y, a igual especificidad, ganaría. */
 .maplibregl-popup-content {
-  @apply bg-base-800 text-texto-primario border border-base-600 rounded-md text-sm;
+  background: #111823 !important; /* base-800 */
+  color: #e6edf3 !important; /* texto-primario */
+  border: 1px solid #26364a !important; /* base-600 */
+  border-radius: 6px !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45) !important;
+}
+/* La "flecha" del popup: teñir todos los lados con el color de fondo (solo el
+   lado visible tiene ancho, los demás son transparentes). */
+.maplibregl-popup-tip {
+  border-top-color: #111823 !important;
+  border-bottom-color: #111823 !important;
+  border-left-color: #111823 !important;
+  border-right-color: #111823 !important;
+}
+.maplibregl-popup-close-button {
+  color: #9fb0c3 !important; /* texto-secundario */
 }
 .maplibregl-ctrl-group {
   @apply bg-base-800 border border-base-600;

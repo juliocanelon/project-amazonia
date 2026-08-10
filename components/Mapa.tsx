@@ -178,6 +178,11 @@ export default function Mapa({
         const el = document.createElement("div");
         el.className = "marcador-sensor";
         el.title = `${s.nombre} (simulado)`;
+        // Rombo en un hijo: MapLibre transforma `el` (translate) pero no al hijo,
+        // preservando la rotación 45° (coherente con la leyenda).
+        const rombo = document.createElement("div");
+        rombo.className = "marcador-sensor__rombo";
+        el.appendChild(rombo);
         const popup = new maplibregl.Popup({ offset: 14, closeButton: false }).setHTML(
           `<div style="font-size:12px">
              <strong>${s.nombre}</strong><br/>
